@@ -4,9 +4,9 @@ async function loadOverviewPage() {
 
     if (!cityPayload.cities.length) {
         AppUtils.renderMetricCards("overviewCards", [
-            { label: "数据状态", value: "--", extra: "暂无城市数据，请先导入真实数据。" },
+            { label: "数据状态", value: "--", extra: "暂无数据" },
         ]);
-        document.getElementById("overviewSuggestion").textContent = "提示：暂无空气质量数据，请先在预测页导入 CSV / Excel。";
+        document.getElementById("overviewSuggestion").textContent = "暂无数据";
         return;
     }
 

@@ -1,6 +1,8 @@
 from collections import Counter
 from datetime import datetime
 
+from sqlalchemy import func
+
 from ..models import (
     AirQualityRecord,
     CrawlArtifact,
@@ -54,13 +56,13 @@ def _mode_label(mode):
 def _empty_overview(city=""):
     return {
         "has_data": False,
-        "message": "暂无空气质量数据，请先在预测页面导入真实数据。",
+        "message": "暂无空气质量数据。",
         "city": city or "--",
         "province": "--",
         "record_time": "--",
         "level": "--",
         "primary_pollutant": "--",
-        "suggestion": "请先导入真实空气质量数据。",
+        "suggestion": "--",
         "metrics": {
             "aqi": None,
             "pm25": None,
@@ -85,7 +87,7 @@ def _empty_overview(city=""):
 def _empty_trend(city="", year=None):
     return {
         "has_data": False,
-        "message": "暂无趋势数据，请先导入真实空气质量数据。",
+        "message": "暂无趋势数据。",
         "city": city or "--",
         "year": year,
         "monthly": [],
@@ -97,7 +99,7 @@ def _empty_trend(city="", year=None):
 def _empty_forecast(city=""):
     return {
         "has_data": False,
-        "message": "暂无预测结果，请先导入真实小时数据并生成 XGBoost 预测。",
+        "message": "暂无预测结果。",
         "city": city or "--",
         "generated_at": "--",
         "hourly": [],
@@ -109,7 +111,7 @@ def _empty_forecast(city=""):
 def _empty_screen():
     return {
         "has_data": False,
-        "message": "暂无大屏数据，请先导入真实空气质量数据。",
+        "message": "暂无大屏数据。",
         "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "summary": {
             "avg_aqi": "--",
@@ -133,13 +135,18 @@ def list_cities():
 
 
 def list_years():
-    rows = (
-        AirQualityRecord.query.with_entities(AirQualityRecord.record_time)
-        .order_by(AirQualityRecord.record_time.asc())
+    year_rows = (
+        AirQualityRecord.query.with_entities(func.strftime("%Y", AirQualityRecord.record_time).label("year"))
+        .group_by("year")
+        .order_by(func.strftime("%Y", AirQualityRecord.record_time).desc())
         .all()
     )
-    years = sorted({row[0].year for row in rows}, reverse=True)
-    return years
+    return [int(row[0]) for row in year_rows if row[0]]
+
+
+def get_min_year():
+    min_record_time = AirQualityRecord.query.with_entities(func.min(AirQualityRecord.record_time)).scalar()
+    return min_record_time.year if min_record_time else None
 
 
 def get_latest_city_record(city):
@@ -330,7 +337,7 @@ def get_forecast(city):
 
     return {
         "has_data": bool(records or metrics),
-        "message": "" if (records or metrics) else "暂无预测结果，请先导入真实小时数据并生成 XGBoost 预测。",
+        "message": "" if (records or metrics) else "暂无预测结果。",
         "city": city,
         "generated_at": records[0].generated_at.strftime("%Y-%m-%d %H:%M") if records else "",
         "hourly": hourly,

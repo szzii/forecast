@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% set page_name = "forecast" %}
 
-{% block title %}空气质量预测 | 空气质量数据分析与预测系统{% endblock %}
+{% block title %}空气质量预测 | 空气质量预测系统{% endblock %}
 
 {% block content %}
 <section class="panel">
     <div class="panel-header">
         <div>
             <h2>空气质量预测</h2>
-            <p class="forecast-intro">当前页面展示未来 24 小时空气质量预测结果，采用趋势基线与 XGBoost 模型进行对比分析；如需补充实时或历史数据，可先前往顶部“数据采集”页面完成采集后再生成预测。</p>
+            <p class="forecast-intro">查看未来 24 小时空气质量预测结果和模型表现。</p>
         </div>
         <div class="toolbar">
             <button id="forecastGenerateButton" class="btn-primary">生成/刷新预测</button>
@@ -16,7 +16,7 @@
     </div>
 
     <div id="forecastSummaryCards" class="metric-grid metric-grid-3"></div>
-    <div id="forecastGenerateMessage" class="inline-message">如需补充实时或历史数据，请先前往“数据采集”页面完成导入后，再回来生成预测。</div>
+    <div id="forecastGenerateMessage" class="inline-message">当前预测基于现有数据生成。</div>
 </section>
 
 <section class="chart-grid chart-grid-2 forecast-top-grid">

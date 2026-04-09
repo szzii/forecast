@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% set page_name = "collect" %}
 
-{% block title %}数据采集 | 空气质量数据分析与预测系统{% endblock %}
+{% block title %}数据采集 | 空气质量预测系统{% endblock %}
 
 {% block content %}
 <section class="panel collect-hero-panel">
     <div class="collect-hero-copy">
         <h2>数据采集管理</h2>
-        <p>当前页面聚焦实时采集、自动采集定时任务与历史范围采集，便于答辩时说明数据获取与调度方案。</p>
+        <p>管理实时采集、定时采集和历史数据采集。</p>
     </div>
 
     <div id="collectSummaryCards" class="metric-grid metric-grid-3 collect-summary-grid"></div>
@@ -18,25 +18,18 @@
     <section class="panel auto-collector-panel">
         <div class="auto-collector-head">
             <div class="panel-title">自动采集定时任务设置</div>
-            <p>支持按固定间隔自动执行真实小时数据采集，也支持通过“立即采集”手动触发一次，统一在这里管理。</p>
+            <p>设置自动采集间隔，也可以手动执行一次实时采集。</p>
         </div>
         <form id="autoCollectorForm" class="auto-collector-form">
-            <label class="auto-switch">
-                <input id="autoCollectorEnabled" name="enabled" type="checkbox">
-                <span class="auto-switch-copy">
-                    <strong>开启自动实时采集</strong>
-                    <small>保存后按设定频率自动执行</small>
-                </span>
-            </label>
             <label class="auto-field">
                 <span>采集间隔（秒）</span>
                 <input id="autoCollectorInterval" name="interval_seconds" type="number" min="60" step="60">
-                <small>建议 1800 秒，可根据演示需要调整</small>
+                <small>默认 1800 秒</small>
             </label>
             <label class="auto-field">
                 <span>单次回补时长（小时）</span>
                 <input id="autoCollectorHours" name="collection_hours" type="number" min="1" step="1">
-                <small>每次执行回补最近多少小时的数据</small>
+                <small>每次采集回补的时间范围</small>
             </label>
             <div class="upload-actions auto-actions">
                 <button type="submit" class="btn-primary">保存设置</button>
@@ -48,15 +41,15 @@
         <div id="autoTaskStatusCard" class="history-task-card auto-task-card">
             <div class="history-task-top">
                 <div>
-                    <div class="panel-title">立即采集执行进度</div>
-                    <div id="autoTaskStatusText" class="history-task-status">当前没有正在执行的立即采集任务</div>
+                    <div class="panel-title">实时采集进度</div>
+                    <div id="autoTaskStatusText" class="history-task-status">当前没有实时采集任务</div>
                 </div>
                 <div id="autoTaskPercent" class="history-task-percent">0%</div>
             </div>
             <div class="history-progress-bar">
                 <div id="autoTaskProgressBar" class="history-progress-fill"></div>
             </div>
-            <div id="autoTaskMeta" class="history-task-meta">点击“立即采集真实小时数据”后，这里会显示执行中状态和详细日志。</div>
+            <div id="autoTaskMeta" class="history-task-meta">这里显示实时采集状态和日志。</div>
             <div id="autoTaskLogList" class="history-task-log-list"></div>
         </div>
     </section>
@@ -64,7 +57,7 @@
     <section class="panel collect-history-panel">
         <div class="collect-subhead">
             <div class="panel-title">历史范围采集</div>
-            <p>支持按日期范围回补历史空气质量数据，可选择全部城市、指定省份或当前城市。</p>
+            <p>按时间范围采集历史数据，可选择全部城市、指定省份或当前城市。</p>
         </div>
         <div class="history-config-card">
             <div class="range-shortcuts">
@@ -106,14 +99,14 @@
             <div class="history-task-top">
                 <div>
                     <div class="panel-title">历史采集执行进度</div>
-                    <div id="historyTaskStatusText" class="history-task-status">当前没有正在执行的历史采集任务</div>
+                    <div id="historyTaskStatusText" class="history-task-status">当前没有历史采集任务</div>
                 </div>
                 <div id="historyTaskPercent" class="history-task-percent">0%</div>
             </div>
             <div class="history-progress-bar">
                 <div id="historyTaskProgressBar" class="history-progress-fill"></div>
             </div>
-            <div id="historyTaskMeta" class="history-task-meta">点击上方“采集历史数据”后，这里会显示执行中状态和分批进度。</div>
+            <div id="historyTaskMeta" class="history-task-meta">这里显示历史采集状态和日志。</div>
             <div id="historyTaskLogList" class="history-task-log-list"></div>
         </div>
     </section>
@@ -122,7 +115,7 @@
 <section class="panel table-panel">
     <div class="collect-subhead collect-log-head">
         <div class="panel-title">采集任务日志</div>
-        <p>统一记录真实小时采集、历史范围采集等执行结果，便于演示系统运行过程。</p>
+        <p>查看各类采集任务的执行记录。</p>
     </div>
     <div class="table-wrap">
         <table>
@@ -132,7 +125,7 @@
                     <th>来源</th>
                     <th>状态</th>
                     <th>条数</th>
-                    <th>执行说明</th>
+                    <th>说明</th>
                     <th>执行时间</th>
                 </tr>
             </thead>

@@ -609,7 +609,7 @@ th {
 
 .collect-workspace-grid {
     display: grid;
-    grid-template-columns: minmax(380px, 1.02fr) minmax(0, 1.18fr);
+    grid-template-columns: 1fr;
     gap: 22px;
     align-items: start;
     margin-top: 22px;
@@ -680,46 +680,6 @@ th {
     background: #f7fbff;
     color: var(--text);
     box-shadow: inset 0 1px 2px rgba(38, 83, 124, 0.04);
-}
-
-.auto-switch {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-height: 54px;
-    padding: 10px 14px;
-    border-radius: 12px;
-    background: #f7fbff;
-    border: 1px solid rgba(39, 132, 232, 0.1);
-    color: var(--text);
-    font-weight: 600;
-    grid-column: 1 / -1;
-}
-
-.auto-switch input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    margin: 0;
-    accent-color: var(--primary);
-    flex: 0 0 auto;
-}
-
-.auto-switch-copy {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.auto-switch-copy strong {
-    font-size: 13px;
-    color: var(--text);
-}
-
-.auto-switch-copy small {
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 1.4;
-    font-weight: 500;
 }
 
 .auto-actions {
@@ -949,10 +909,6 @@ th {
 }
 
 @media (max-width: 1200px) {
-    .collect-workspace-grid {
-        grid-template-columns: 1fr;
-    }
-
     .metric-grid,
     .metric-grid-3,
     .chart-grid-2,

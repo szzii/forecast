@@ -18,6 +18,7 @@ from .services.auto_collection_service import (
 from .services.forecast_service import generate_forecast_for_city
 from .services.import_service import import_air_quality_dataset
 from .services.repository import (
+    get_min_year,
     get_crawler_status,
     get_forecast,
     get_import_logs,
@@ -62,13 +63,15 @@ def screen():
 @api.route("/cities")
 def cities():
     cities_data = list_cities()
-    years = list_years()
+    current_year = datetime.now().year
+    min_year = get_min_year()
+    years = list(range(current_year, min_year - 1, -1)) if min_year else [current_year]
     return jsonify(
         {
             "cities": cities_data,
             "default_city": "南京" if "南京" in cities_data else (cities_data[0] if cities_data else ""),
             "years": years,
-            "default_year": years[0] if years else datetime.now().year,
+            "default_year": current_year,
         }
     )
 

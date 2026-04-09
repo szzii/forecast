@@ -32,14 +32,12 @@ function renderAutoCollectorSummary(payload) {
 
 async function loadAutoCollectorSettings() {
     const payload = await AppUtils.fetchJSON("/api/collector/auto-settings");
-    const enabledInput = document.getElementById("autoCollectorEnabled");
     const intervalInput = document.getElementById("autoCollectorInterval");
     const hoursInput = document.getElementById("autoCollectorHours");
-    if (!enabledInput || !intervalInput || !hoursInput) {
+    if (!intervalInput || !hoursInput) {
         return;
     }
 
-    enabledInput.checked = Boolean(payload.enabled);
     intervalInput.value = payload.interval_seconds || 1800;
     hoursInput.value = payload.collection_hours || 24;
     renderAutoCollectorSummary(payload);
@@ -120,10 +118,10 @@ function renderHistoryTask(task) {
     const taskLogList = document.getElementById("historyTaskLogList");
 
     if (!task) {
-        statusText.textContent = "当前没有正在执行的历史采集任务";
+        statusText.textContent = "当前没有历史采集任务";
         percentText.textContent = "0%";
         progressBar.style.width = "0%";
-        taskMeta.textContent = "点击上方“采集历史数据”后，这里会显示执行中状态和分批进度。";
+        taskMeta.textContent = "这里显示历史采集状态和日志。";
         taskLogList.innerHTML = "";
         setHistorySubmitButtonState(false);
         return;
@@ -155,10 +153,10 @@ function renderRealtimeTask(task) {
     const taskLogList = document.getElementById("autoTaskLogList");
 
     if (!task) {
-        statusText.textContent = "当前没有正在执行的立即采集任务";
+        statusText.textContent = "当前没有实时采集任务";
         percentText.textContent = "0%";
         progressBar.style.width = "0%";
-        taskMeta.textContent = "点击“立即采集真实小时数据”后，这里会显示执行中状态和详细日志。";
+        taskMeta.textContent = "这里显示实时采集状态和日志。";
         taskLogList.innerHTML = "";
         setRealtimeSubmitButtonState(false);
         return;
@@ -360,7 +358,6 @@ async function loadCollectPage() {
 
     document.getElementById("autoCollectorForm").addEventListener("submit", async (event) => {
         event.preventDefault();
-        const enabled = document.getElementById("autoCollectorEnabled").checked;
         const intervalSeconds = Number(document.getElementById("autoCollectorInterval").value || 0);
         const collectionHours = Number(document.getElementById("autoCollectorHours").value || 0);
 
@@ -379,7 +376,7 @@ async function loadCollectPage() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    enabled,
+                    enabled: true,
                     interval_seconds: intervalSeconds,
                     collection_hours: collectionHours,
                 }),
@@ -387,7 +384,7 @@ async function loadCollectPage() {
             renderAutoCollectorSummary(result);
             showStatusMessage(
                 "autoCollectorMessage",
-                `保存成功：自动采集已${result.enabled ? "开启" : "关闭"}，采集间隔 ${result.interval_seconds} 秒，单次回补 ${result.collection_hours} 小时。`
+                `保存成功：自动采集已启用，采集间隔 ${result.interval_seconds} 秒，单次回补 ${result.collection_hours} 小时。`
             );
         } catch (error) {
             showStatusMessage("autoCollectorMessage", `保存失败：${error.message}`);
@@ -406,7 +403,7 @@ async function loadCollectPage() {
             collectState.activeRealtimeTaskId = result.task_id;
             saveRealtimeTaskId(result.task_id);
             renderRealtimeTask(result);
-            showStatusMessage("autoCollectorMessage", "立即采集任务已提交，系统正在后台执行，可在下方查看执行中状态和详细日志。");
+            showStatusMessage("autoCollectorMessage", "实时采集任务已提交。");
             if (collectState.realtimePollTimer) {
                 window.clearTimeout(collectState.realtimePollTimer);
             }
@@ -424,7 +421,7 @@ async function loadCollectPage() {
         const startDateValue = historyStartDate.value;
         const endDateValue = historyEndDate.value;
         if (!startDateValue || !endDateValue) {
-            showStatusMessage("historyCollectorMessage", "请先选择开始日期和结束日期。");
+            showStatusMessage("historyCollectorMessage", "请选择开始日期和结束日期。");
             return;
         }
 
@@ -455,7 +452,7 @@ async function loadCollectPage() {
             collectState.activeHistoryTaskId = result.task_id;
             saveHistoryTaskId(result.task_id);
             renderHistoryTask(result);
-            showStatusMessage("historyCollectorMessage", "历史采集任务已提交，系统正在后台执行，可在下方查看执行中状态和进度日志。");
+            showStatusMessage("historyCollectorMessage", "历史采集任务已提交。");
             if (collectState.historyPollTimer) {
                 window.clearTimeout(collectState.historyPollTimer);
             }

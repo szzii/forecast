@@ -1,8 +1,8 @@
 ﻿city,province,query_name,province_en,latitude,longitude,timezone,enabled,resolved_name,admin1,admin2,last_resolved_at
 五家渠市,新疆维吾尔自治区,Wujiaqu,Xinjiang (XPCC),44.16279,87.52174,Asia/Urumqi,1,Wujiaqu,Xinjiang,Changji Hui Autonomous Prefecture,2026-04-09 21:30:41
 北屯市,新疆维吾尔自治区,Beitun,Xinjiang (XPCC),47.35249,87.82053,Asia/Urumqi,1,Beitun,Xinjiang,Aletai Diqu,2026-04-09 21:30:36
-双河市,新疆维吾尔自治区,Shuanghe,Xinjiang (XPCC),,,Asia/Shanghai,0,,,,2026-04-09 23:41:17
-可克达拉市,新疆维吾尔自治区,Kokdala,Xinjiang (XPCC),,,Asia/Shanghai,0,,,,2026-04-09 23:41:13
+双河市,新疆维吾尔自治区,Shuanghe,Xinjiang (XPCC),,,Asia/Shanghai,0,,,,2026-04-09 23:59:01
+可克达拉市,新疆维吾尔自治区,Kokdala,Xinjiang (XPCC),,,Asia/Shanghai,0,,,,2026-04-09 23:58:59
 图木舒克市,新疆维吾尔自治区,Tumxuk,Xinjiang (XPCC),41.36861,79.96278,Asia/Urumqi,1,Tumxuk,Xinjiang,Aksu Prefecture,2026-04-09 21:30:37
 昆玉市,新疆维吾尔自治区,Kunyu,Xinjiang (XPCC),37.60896,75.57233,Asia/Urumqi,1,Kunyuzi,Xinjiang,Kashgar Prefecture,2026-04-09 21:39:35
 石河子市,新疆维吾尔自治区,Shihezi,Xinjiang (XPCC),44.3023,86.03694,Asia/Urumqi,1,Shihezi,Xinjiang,Shihezi,2026-04-09 21:30:37
@@ -21,7 +21,7 @@
 文山市,云南省,Wenshan,Yunnan,24.3232,102.211,Asia/Shanghai,1,Wenshan,Yunnan,Yuxi Shi,2026-04-09 21:30:43
 昆明市,云南省,Kunming,Yunnan,25.03889,102.71833,Asia/Shanghai,1,Kunming,Yunnan,Kunming Shi,2026-04-09 21:30:41
 昭通市,云南省,Zhaotong,Yunnan,27.31667,103.71667,Asia/Shanghai,1,Zhaotong,Yunnan,Zhaotong Shi,2026-04-09 21:30:43
-普洱市,云南省,Pu'er,Yunnan,,,Asia/Shanghai,0,,,,2026-04-09 23:41:19
+普洱市,云南省,Pu'er,Yunnan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:01
 景洪市,云南省,Jinghong,Yunnan,22.00265,100.7697,Asia/Shanghai,1,Jinghong,Yunnan,Xishuangbanna Daizu Zizhizhou,2026-04-09 21:30:43
 曲靖市,云南省,Qujing,Yunnan,25.48333,103.78333,Asia/Shanghai,1,Qujing,Yunnan,Qujing Shi,2026-04-09 21:30:43
 楚雄市,云南省,Chuxiong,Yunnan,25.03639,101.54556,Asia/Shanghai,1,Chuxiong,Yunnan,Chuxiong Yi Autonomous Prefecture,2026-04-09 21:30:43
@@ -51,7 +51,7 @@
 鄂尔多斯市,内蒙古自治区,Ordos,Inner Mongolia,39.6086,109.78157,Asia/Shanghai,1,Ordos,Inner Mongolia,Ordos Shi,2026-04-09 21:30:54
 锡林浩特市,内蒙古自治区,Xilinhot,Inner Mongolia,43.93889,116.07021,Asia/Shanghai,1,Xiritala,Inner Mongolia,Xilingol League,2026-04-09 21:31:02
 阿尔山市,内蒙古自治区,Arxan,Inner Mongolia,44.9,118.1,Asia/Shanghai,1,Arxan Bulag,Inner Mongolia,Xilingol League,2026-04-09 21:31:02
-霍林郭勒市,内蒙古自治区,Holingol,Inner Mongolia,,,Asia/Shanghai,0,,,,2026-04-09 23:41:13
+霍林郭勒市,内蒙古自治区,Holingol,Inner Mongolia,,,Asia/Shanghai,0,,,,2026-04-09 23:58:59
 额尔古纳市,内蒙古自治区,Ergun,Inner Mongolia,50.22362,120.17092,Asia/Shanghai,1,Ergun,Inner Mongolia,Hulunbuir,2026-04-09 21:30:55
 北京市,北京市,Beijing,Beijing,39.9075,116.39723,Asia/Shanghai,1,Beijing,Beijing,Beijing,2026-04-09 21:30:55
 临江市,吉林省,Linjiang,Jilin,41.80694,126.90778,Asia/Shanghai,1,Linjiang,Jilin,baishan shi,2026-04-09 21:30:56
@@ -61,7 +61,7 @@
 和龙市,吉林省,Helong,Jilin,42.53974,128.99722,Asia/Shanghai,1,Helong,Jilin,Yanbian Korean Autonomous Prefecture,2026-04-09 21:31:00
 四平市,吉林省,Siping,Jilin,43.16143,124.37785,Asia/Shanghai,1,Siping,Jilin,Siping Shi,2026-04-09 21:30:58
 图们市,吉林省,Tumen,Jilin,42.96562,129.842,Asia/Shanghai,1,Tumen,Jilin,,2026-04-09 21:31:01
-大安市,吉林省,Da'an,Jilin,,,Asia/Shanghai,0,,,,2026-04-09 23:41:15
+大安市,吉林省,Da'an,Jilin,,,Asia/Shanghai,0,,,,2026-04-09 23:59:02
 延吉市,吉林省,Yanji,Jilin,42.88825,129.50241,Asia/Shanghai,1,Yanji,Jilin,Yanbian Korean Autonomous Prefecture,2026-04-09 21:31:04
 德惠市,吉林省,Dehui,Jilin,44.53333,125.7,Asia/Shanghai,1,Dehui,Jilin,Changchun Shi,2026-04-09 21:31:02
 扶余市,吉林省,Fuyu,Jilin,45.18333,124.81667,Asia/Shanghai,1,Fuyu,Jilin,Songyuan Shi,2026-04-09 21:31:03
@@ -77,14 +77,14 @@
 磐石市,吉林省,Panshi,Jilin,42.93719,126.05743,Asia/Shanghai,1,Panshi,Jilin,Jilin City,2026-04-09 21:31:06
 舒兰市,吉林省,Shulan,Jilin,44.41134,126.94827,Asia/Shanghai,1,Shulan,Jilin,Jilin City,2026-04-09 21:31:07
 蛟河市,吉林省,Jiaohe,Jilin,43.72133,127.33473,Asia/Shanghai,1,Jiaohe,Jilin,Jilin City,2026-04-09 21:31:06
-辽源市,吉林省,Liaoyuan,Jilin,,,Asia/Shanghai,0,,,,2026-04-09 23:41:13
+辽源市,吉林省,Liaoyuan,Jilin,,,Asia/Shanghai,0,,,,2026-04-09 23:58:59
 通化市,吉林省,Tonghua,Jilin,41.71972,125.92639,Asia/Shanghai,1,Tonghua,Jilin,Tonghua Shi,2026-04-09 21:31:08
 长春市,吉林省,Changchun,Jilin,43.88,125.32278,Asia/Shanghai,1,Changchun,Jilin,Changchun Shi,2026-04-09 21:31:07
 集安市,吉林省,Ji'an,Jilin,41.12818,126.19455,Asia/Shanghai,1,Ji’an,Jilin,Tonghua Shi,2026-04-09 21:31:11
 龙井市,吉林省,Longjing,Jilin,42.77131,129.42307,Asia/Shanghai,1,Longjing,Jilin,Yanbian Korean Autonomous Prefecture,2026-04-09 21:31:09
 万源市,四川省,Wanyuan,Sichuan,32.4188,105.863,Asia/Shanghai,1,Wanyuan,Sichuan,Guangyuan Shi,2026-04-09 21:31:09
 乐山市,四川省,Leshan,Sichuan,29.56227,103.76386,Asia/Shanghai,1,Leshan,Sichuan,Leshan Shi,2026-04-09 21:31:08
-什邡市,四川省,Shifang,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:41:22
+什邡市,四川省,Shifang,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:10
 内江市,四川省,Neijiang,Sichuan,29.58354,105.06216,Asia/Shanghai,1,Neijiang,Sichuan,Neijiang Shi,2026-04-09 21:31:09
 华蓥市,四川省,Huaying,Sichuan,30.13449,106.74476,Asia/Shanghai,1,Huaying,Sichuan,Guang’an Shi,2026-04-09 21:31:10
 南充市,四川省,Nanchong,Sichuan,30.79508,106.08473,Asia/Shanghai,1,Nanchong,Sichuan,Nanchong Shi,2026-04-09 21:31:10
@@ -93,17 +93,17 @@
 崇州市,四川省,Chongzhou,Sichuan,30.63029,103.67263,Asia/Shanghai,1,Chongzhou,Sichuan,Chengdu Shi,2026-04-09 21:31:11
 巴中市,四川省,Bazhong,Sichuan,31.8694,106.74432,Asia/Shanghai,1,Bazhong,Sichuan,Bazhong,2026-04-09 21:31:12
 广元市,四川省,Guangyuan,Sichuan,32.44201,105.823,Asia/Shanghai,1,Guangyuan,Sichuan,Guangyuan Shi,2026-04-09 21:31:13
-广安市,四川省,Guang'an,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:41:31
+广安市,四川省,Guang'an,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:08
 广汉市,四川省,Guanghan,Sichuan,30.94866,104.32952,Asia/Shanghai,1,Guanghan Airport,Sichuan,Deyang Shi,2026-04-09 21:39:46
 康定市,四川省,Kangding,Sichuan,30.00222,101.9569,Asia/Shanghai,1,Kangding,Sichuan,Garzê,2026-04-09 21:31:13
-彭州市,四川省,Pengzhou,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:41:20
+彭州市,四川省,Pengzhou,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:08
 德阳市,四川省,Deyang,Sichuan,31.13019,104.38198,Asia/Shanghai,1,Deyang,Sichuan,Deyang Shi,2026-04-09 21:31:15
 成都市,四川省,Chengdu,Sichuan,30.66667,104.06667,Asia/Shanghai,1,Chengdu,Sichuan,Chengdu Shi,2026-04-09 21:31:15
 攀枝花市,四川省,Panzhihua,Sichuan,26.58509,101.71276,Asia/Shanghai,1,Panzhihua,Sichuan,Panzhihua Shi,2026-04-09 21:31:17
 江油市,四川省,Jiangyou,Sichuan,31.76667,104.71667,Asia/Shanghai,1,Jiangyou,Sichuan,Mianyang Shi,2026-04-09 21:31:16
 泸州市,四川省,Luzhou,Sichuan,28.8903,105.42575,Asia/Shanghai,1,Luzhou,Sichuan,Luzhou Shi,2026-04-09 21:31:42
 眉山市,四川省,Meishan,Sichuan,30.04392,103.83696,Asia/Shanghai,1,Meishan,Sichuan,Meishan Shi,2026-04-09 21:31:18
-简阳市,四川省,Jianyang,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:41:23
+简阳市,四川省,Jianyang,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:08
 绵竹市,四川省,Mianzhu,Sichuan,29.62306,103.69359,Asia/Shanghai,1,Mianzhu,Sichuan,Leshan Shi,2026-04-09 21:31:44
 绵阳市,四川省,Mianyang,Sichuan,31.46784,104.68168,Asia/Shanghai,1,Mianyang,Sichuan,Mianyang Shi,2026-04-09 21:31:44
 自贡市,四川省,Zigong,Sichuan,29.34162,104.77689,Asia/Shanghai,1,Zigong,Sichuan,Zigong Shi,2026-04-09 21:31:46
@@ -114,7 +114,7 @@
 邛崃市,四川省,Qionglai,Sichuan,31.5,102.5,Asia/Shanghai,1,Qionglai Shan,Sichuan,,2026-04-09 21:31:55
 都江堰市,四川省,Dujiangyan,Sichuan,30.98843,103.64639,Asia/Shanghai,1,Dujiangyan,Sichuan,Chengdu Shi,2026-04-09 21:31:48
 阆中市,四川省,Langzhong,Sichuan,31.55037,105.99381,Asia/Shanghai,1,Langzhong,Sichuan,Nanchong Shi,2026-04-09 21:31:48
-隆昌市,四川省,Longchang,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:41:26
+隆昌市,四川省,Longchang,Sichuan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:09
 雅安市,四川省,Ya'an,Sichuan,29.98521,102.999,Asia/Shanghai,1,Ya'an,Sichuan,Ya'an,2026-04-09 21:31:50
 马尔康市,四川省,Barkam,Sichuan,31.90059,102.22092,Asia/Shanghai,1,Maerkang,Sichuan,Aba Zangzu Qiangzu Zizhizhou,2026-04-09 21:31:58
 天津市,天津市,Tianjin,Tianjin,39.14222,117.17667,Asia/Shanghai,1,Tianjin,Tianjin,Tianjin Municipality,2026-04-09 21:31:50
@@ -140,13 +140,13 @@
 淮北市,安徽省,Huaibei,Anhui,33.97444,116.79167,Asia/Shanghai,1,Huaibei,Anhui,Huaibei Shi,2026-04-09 21:32:01
 淮南市,安徽省,Huainan,Anhui,32.62639,116.99694,Asia/Shanghai,1,Huainan,Anhui,Huainan Shi,2026-04-09 21:32:02
 滁州市,安徽省,Chuzhou,Anhui,32.32194,118.29778,Asia/Shanghai,1,Chuzhou,Anhui,Chuzhou Shi,2026-04-09 21:32:04
-潜山市,安徽省,Qianshan,Anhui,,,Asia/Shanghai,0,,,,2026-04-09 23:41:26
+潜山市,安徽省,Qianshan,Anhui,,,Asia/Shanghai,0,,,,2026-04-09 23:59:09
 界首市,安徽省,Jieshou,Anhui,33.26338,115.36108,Asia/Shanghai,1,Jieshou,Anhui,Fuyang Shi,2026-04-09 21:32:03
 芜湖市,安徽省,Wuhu,Anhui,31.35259,118.42947,Asia/Shanghai,1,Wuhu,Anhui,Wuhu Shi,2026-04-09 21:32:03
 蚌埠市,安徽省,Bengbu,Anhui,32.94083,117.36083,Asia/Shanghai,1,Bengbu,Anhui,Bengbu Shi,2026-04-09 21:32:03
 铜陵市,安徽省,Tongling,Anhui,30.95,117.78333,Asia/Shanghai,1,Tongling,Anhui,Tongling Shi,2026-04-09 21:32:05
 阜阳市,安徽省,Fuyang,Anhui,32.9,115.81667,Asia/Shanghai,1,Fuyang,Anhui,Fuyang Shi,2026-04-09 21:32:07
-马鞍山市,安徽省,Ma'anshan,Anhui,,,Asia/Shanghai,0,,,,2026-04-09 23:41:36
+马鞍山市,安徽省,Ma'anshan,Anhui,,,Asia/Shanghai,0,,,,2026-04-09 23:59:18
 黄山市,安徽省,Huangshan,Anhui,33.775,116.96667,Asia/Shanghai,1,Huangshan,Anhui,Suzhou Shi,2026-04-09 21:32:05
 东营市,山东省,Dongying,Shandong,37.46271,118.49165,Asia/Shanghai,1,Dongying,Shandong,Dongying Shi,2026-04-09 21:32:07
 临沂市,山东省,Linyi,Shandong,35.06306,118.34278,Asia/Shanghai,1,Linyi,Shandong,Linyi Shi,2026-04-09 21:32:07
@@ -164,11 +164,11 @@
 昌邑市,山东省,Changyi,Shandong,36.85361,119.39083,Asia/Shanghai,1,Changyi,Shandong,Weifang Shi,2026-04-09 21:32:14
 曲阜市,山东省,Qufu,Shandong,35.59667,116.99111,Asia/Shanghai,1,Qufu,Shandong,Jining Shi,2026-04-09 21:32:17
 枣庄市,山东省,Zaozhuang,Shandong,34.86472,117.55417,Asia/Shanghai,1,Zaozhuang,Shandong,Zaozhuang Shi,2026-04-09 21:32:14
-栖霞市,山东省,Qixia,Shandong,,,Asia/Shanghai,0,,,,2026-04-09 23:41:29
-泰安市,山东省,Tai'an,Shandong,,,Asia/Shanghai,0,,,,2026-04-09 23:41:33
+栖霞市,山东省,Qixia,Shandong,,,Asia/Shanghai,0,,,,2026-04-09 23:59:15
+泰安市,山东省,Tai'an,Shandong,,,Asia/Shanghai,0,,,,2026-04-09 23:59:19
 济南市,山东省,Jinan,Shandong,36.66833,116.99722,Asia/Shanghai,1,Jinan,Shandong,Jinan Shi,2026-04-09 21:32:16
 济宁市,山东省,Jining,Shandong,35.405,116.58139,Asia/Shanghai,1,Jining,Shandong,Jining Shi,2026-04-09 21:32:16
-海阳市,山东省,Haiyang,Shandong,,,Asia/Shanghai,0,,,,2026-04-09 23:41:33
+海阳市,山东省,Haiyang,Shandong,,,Asia/Shanghai,0,,,,2026-04-09 23:59:17
 淄博市,山东省,Zibo,Shandong,36.79056,118.06333,Asia/Shanghai,1,Zibo,Shandong,Zibo Shi,2026-04-09 21:32:18
 滕州市,山东省,Tengzhou,Shandong,35.08357,117.19071,Asia/Shanghai,1,Tengzhou,Shandong,Zaozhuang Shi,2026-04-09 21:32:18
 滨州市,山东省,Binzhou,Shandong,37.36667,118.01667,Asia/Shanghai,1,Binzhou,Shandong,Binzhou Shi,2026-04-09 21:32:18
@@ -183,7 +183,7 @@
 莱西市,山东省,Laixi,Shandong,36.85917,120.52694,Asia/Shanghai,1,Laixi,Shandong,Qingdao Shi,2026-04-09 21:32:23
 莱阳市,山东省,Laiyang,Shandong,36.97583,120.71361,Asia/Shanghai,1,Laiyang,Shandong,Yantai Shi,2026-04-09 21:32:25
 菏泽市,山东省,Heze,Shandong,35.23929,115.47358,Asia/Shanghai,1,Heze,Shandong,Heze Shi,2026-04-09 21:32:23
-蓬莱市,山东省,Penglai,Shandong,,,Asia/Shanghai,0,,,,2026-04-09 23:41:34
+蓬莱市,山东省,Penglai,Shandong,,,Asia/Shanghai,0,,,,2026-04-09 23:59:17
 诸城市,山东省,Zhucheng,Shandong,35.99472,119.3975,Asia/Shanghai,1,Zhucheng,Shandong,Weifang Shi,2026-04-09 21:32:25
 邹城市,山东省,Zoucheng,Shandong,35.40056,116.96556,Asia/Shanghai,1,Zoucheng,Shandong,Jining Shi,2026-04-09 21:32:26
 邹平市,山东省,Zouping,Shandong,36.88333,117.7,Asia/Shanghai,1,Zouping,Shandong,Binzhou Shi,2026-04-09 21:32:26
@@ -196,7 +196,7 @@
 侯马市,山西省,Houma,Shanxi,35.61358,111.3566,Asia/Shanghai,1,Xintian,Shanxi,Linfen Shi,2026-04-09 21:39:56
 原平市,山西省,Yuanping,Shanxi,38.71528,112.7575,Asia/Shanghai,1,Yuanping,Shanxi,Xinzhou Shi,2026-04-09 21:32:30
 古交市,山西省,Gujiao,Shanxi,37.905,112.13389,Asia/Shanghai,1,Gujiao,Shanxi,Taiyuan Shi,2026-04-09 21:32:32
-吕梁市,山西省,Lüliang,Shanxi,,,Asia/Shanghai,0,,,,2026-04-09 23:41:38
+吕梁市,山西省,Lüliang,Shanxi,,,Asia/Shanghai,0,,,,2026-04-09 23:59:23
 大同市,山西省,Datong,Shanxi,40.09361,113.29139,Asia/Shanghai,1,Datong,Shanxi,Datong Shi,2026-04-09 21:32:33
 太原市,山西省,Taiyuan,Shanxi,37.86944,112.56028,Asia/Shanghai,1,Taiyuan,Shanxi,Taiyuan Shi,2026-04-09 21:32:32
 孝义市,山西省,Xiaoyi,Shanxi,37.12278,111.80222,Asia/Shanghai,1,Xiaoyi,Shanxi,Lüliang,2026-04-09 21:32:33
@@ -215,20 +215,20 @@
 高平市,山西省,Gaoping,Shanxi,35.79333,112.91722,Asia/Shanghai,1,Gaoping,Shanxi,Jincheng Shi,2026-04-09 21:32:39
 东莞市,广东省,Dongguan,Guangdong,23.01797,113.74866,Asia/Shanghai,1,Dongguan,Guangdong,Dongguan Shi,2026-04-09 21:32:40
 中山市,广东省,Zhongshan,Guangdong,22.52306,113.37912,Asia/Shanghai,1,Zhongshan,Guangdong,Zhongshan City,2026-04-09 21:32:40
-乐昌市,广东省,Lechang,Guangdong,,,Asia/Shanghai,0,,,,2026-04-09 23:41:41
+乐昌市,广东省,Lechang,Guangdong,,,Asia/Shanghai,0,,,,2026-04-09 23:59:23
 云浮市,广东省,Yunfu,Guangdong,22.92787,112.03809,Asia/Shanghai,1,Yunfu,Guangdong,Yunfu Shi,2026-04-09 21:32:43
 佛山市,广东省,Foshan,Guangdong,23.02677,113.13148,Asia/Shanghai,1,Foshan,Guangdong,Foshan Shi,2026-04-09 21:32:42
 信宜市,广东省,Xinyi,Guangdong,22.37303,110.94746,Asia/Shanghai,1,Xinyi,Guangdong,Maoming Shi,2026-04-09 21:32:42
 兴宁市,广东省,Xingning,Guangdong,24.1483,115.72272,Asia/Shanghai,1,Xingning,Guangdong,Meizhou Shi,2026-04-09 21:32:43
 化州市,广东省,Huazhou,Guangdong,21.63333,110.58333,Asia/Shanghai,1,Huazhou,Guangdong,Maoming Shi,2026-04-09 21:32:42
-南雄市,广东省,Nanxiong,Guangdong,,,Asia/Shanghai,0,,,,2026-04-09 23:41:43
+南雄市,广东省,Nanxiong,Guangdong,,,Asia/Shanghai,0,,,,2026-04-09 23:59:25
 台山市,广东省,Taishan,Guangdong,22.25135,112.7799,Asia/Shanghai,1,Taishan,Guangdong,Jiangmen Shi,2026-04-09 21:39:55
 吴川市,广东省,Wuchuan,Guangdong,21.45713,110.76591,Asia/Shanghai,1,Wuchuan,Guangdong,,2026-04-09 21:32:44
 四会市,广东省,Sihui,Guangdong,23.36798,112.68572,Asia/Shanghai,1,Sihui,Guangdong,Zhaoqing Shi,2026-04-09 21:32:45
 广州市,广东省,Guangzhou,Guangdong,23.11667,113.25,Asia/Shanghai,1,Guangzhou,Guangdong,Guangzhou Shi,2026-04-09 21:32:46
 廉江市,广东省,Lianjiang,Guangdong,21.64673,110.28172,Asia/Shanghai,1,Lianjiang,Guangdong,Zhanjiang Shi,2026-04-09 21:32:46
-开平市,广东省,Kaiping,Guangdong,,,Asia/Shanghai,0,,,,2026-04-09 23:41:42
-恩平市,广东省,Enping,Guangdong,,,Asia/Shanghai,0,,,,2026-04-09 23:41:45
+开平市,广东省,Kaiping,Guangdong,,,Asia/Shanghai,0,,,,2026-04-09 23:59:27
+恩平市,广东省,Enping,Guangdong,,,Asia/Shanghai,0,,,,2026-04-09 23:59:26
 惠州市,广东省,Huizhou,Guangdong,23.11147,114.41523,Asia/Shanghai,1,Huizhou,Guangdong,Huizhou Shi,2026-04-09 21:32:48
 揭阳市,广东省,Jieyang,Guangdong,23.5418,116.36581,Asia/Shanghai,1,Jieyang,Guangdong,Jieyang Shi,2026-04-09 21:32:52
 普宁市,广东省,Puning,Guangdong,23.31072,116.16869,Asia/Shanghai,1,Puning,Guangdong,Jieyang Shi,2026-04-09 21:32:54
@@ -286,15 +286,15 @@
 哈密市,新疆维吾尔自治区,Hami,Xinjiang,42.83393,93.50601,Asia/Urumqi,1,Kumul,Xinjiang,Hami,2026-04-09 21:33:38
 喀什市,新疆维吾尔自治区,Kashgar,Xinjiang,39.46718,75.98675,Asia/Urumqi,1,Kashgar,Xinjiang,Kashgar Prefecture,2026-04-09 21:33:24
 塔城市,新疆维吾尔自治区,Tacheng,Xinjiang,46.74535,82.95847,Asia/Urumqi,1,Tacheng,Xinjiang,Tacheng Diqu,2026-04-09 21:33:25
-奎屯市,新疆维吾尔自治区,Kuytun,Xinjiang,,,Asia/Shanghai,0,,,,2026-04-09 23:41:43
+奎屯市,新疆维吾尔自治区,Kuytun,Xinjiang,,,Asia/Shanghai,0,,,,2026-04-09 23:59:28
 库尔勒市,新疆维吾尔自治区,Korla,Xinjiang,41.76055,86.15231,Asia/Urumqi,1,Korla,Xinjiang,Bayingolin Mongol Autonomous Prefecture,2026-04-09 21:33:26
 昌吉市,新疆维吾尔自治区,Changji,Xinjiang,44.00782,87.30461,Asia/Urumqi,1,Changji,Xinjiang,Changji Hui Autonomous Prefecture,2026-04-09 21:33:27
 阜康市,新疆维吾尔自治区,Fukang,Xinjiang,44.15568,87.98301,Asia/Urumqi,1,Bofeng,Xinjiang,Changji Hui Autonomous Prefecture,2026-04-09 21:40:04
 阿克苏市,新疆维吾尔自治区,Aksu,Xinjiang,41.18418,80.27921,Asia/Urumqi,1,Aksu,Xinjiang,Aksu Prefecture,2026-04-09 21:33:28
 阿勒泰市,新疆维吾尔自治区,Altay,Xinjiang,47.8505,88.13286,Asia/Urumqi,1,Altay,Xinjiang,Aletai Diqu,2026-04-09 21:33:28
-阿图什市,新疆维吾尔自治区,Artux,Xinjiang,,,Asia/Shanghai,0,,,,2026-04-09 23:41:49
+阿图什市,新疆维吾尔自治区,Artux,Xinjiang,,,Asia/Shanghai,0,,,,2026-04-09 23:59:30
 阿拉山口市,新疆维吾尔自治区,Alashankou,Xinjiang,45.17018,82.56981,Asia/Shanghai,1,Alashankou,Xinjiang,Bortala,2026-04-09 21:33:29
-霍尔果斯市,新疆维吾尔自治区,Khorgas,Xinjiang,,,Asia/Shanghai,0,,,,2026-04-09 23:41:51
+霍尔果斯市,新疆维吾尔自治区,Khorgas,Xinjiang,,,Asia/Shanghai,0,,,,2026-04-09 23:59:30
 东台市,江苏省,Dongtai,Jiangsu,32.85231,120.30947,Asia/Shanghai,1,Dongtai,Jiangsu,Yancheng Shi,2026-04-09 21:33:32
 丹阳市,江苏省,Danyang,Jiangsu,31.62922,118.71565,Asia/Shanghai,1,Danyang,Jiangsu,,2026-04-09 21:33:33
 仪征市,江苏省,Yizheng,Jiangsu,32.34854,119.10688,Asia/Shanghai,1,Yizheng Shi Tongshan Senlin Gongyuan,Jiangsu,Yangzhou Shi,2026-04-09 21:40:10
@@ -311,7 +311,7 @@
 常熟市,江苏省,Changshu,Jiangsu,31.64615,120.74221,Asia/Shanghai,1,Changshu,Jiangsu,Suzhou Shi,2026-04-09 21:33:43
 张家港市,江苏省,Zhangjiagang,Jiangsu,31.865,120.53889,Asia/Shanghai,1,Zhangjiagang,Jiangsu,Suzhou Shi,2026-04-09 21:33:43
 徐州市,江苏省,Xuzhou,Jiangsu,34.20442,117.28386,Asia/Shanghai,1,Xuzhou,Jiangsu,Xuzhou,2026-04-09 21:33:43
-扬中市,江苏省,Yangzhong,Jiangsu,,,Asia/Shanghai,0,,,,2026-04-09 23:41:52
+扬中市,江苏省,Yangzhong,Jiangsu,,,Asia/Shanghai,0,,,,2026-04-09 23:59:32
 扬州市,江苏省,Yangzhou,Jiangsu,32.39722,119.43583,Asia/Shanghai,1,Yangzhou,Jiangsu,Yangzhou Shi,2026-04-09 21:33:43
 新沂市,江苏省,Xinyi,Jiangsu,34.38424,118.34617,Asia/Shanghai,1,Xinyi,Jiangsu,Xuzhou,2026-04-09 21:33:44
 无锡市,江苏省,Wuxi,Jiangsu,31.56887,120.28857,Asia/Shanghai,1,Wuxi,Jiangsu,Wuxi Shi,2026-04-09 21:33:45
@@ -319,10 +319,10 @@
 江阴市,江苏省,Jiangyin,Jiangsu,31.91102,120.26302,Asia/Shanghai,1,Jiangyin,Jiangsu,Wuxi Shi,2026-04-09 21:33:47
 泰兴市,江苏省,Taixing,Jiangsu,33.27689,120.4052,Asia/Shanghai,1,Taixing,Jiangsu,Yancheng Shi,2026-04-09 21:33:46
 泰州市,江苏省,Taizhou,Jiangsu,32.49069,119.90812,Asia/Shanghai,1,Taizhou,Jiangsu,Taizhou Shi,2026-04-09 21:33:52
-海安市,江苏省,Hai'an,Jiangsu,,,Asia/Shanghai,0,,,,2026-04-09 23:41:53
+海安市,江苏省,Hai'an,Jiangsu,,,Asia/Shanghai,0,,,,2026-04-09 23:59:37
 海门市,江苏省,Haimen,Jiangsu,31.89619,121.17274,Asia/Shanghai,1,Haimen,Jiangsu,Nantong Shi,2026-04-09 21:33:47
 淮安市,江苏省,Huai'an,Jiangsu,33.58861,119.01917,Asia/Shanghai,1,Huai'an,Jiangsu,Huai’an Shi,2026-04-09 21:33:50
-溧阳市,江苏省,Liyang,Jiangsu,,,Asia/Shanghai,0,,,,2026-04-09 23:41:53
+溧阳市,江苏省,Liyang,Jiangsu,,,Asia/Shanghai,0,,,,2026-04-09 23:59:35
 盐城市,江苏省,Yancheng,Jiangsu,33.3575,120.1573,Asia/Shanghai,1,Yancheng,Jiangsu,Yancheng Shi,2026-04-09 21:33:49
 苏州市,江苏省,Suzhou,Jiangsu,31.30408,120.59538,Asia/Shanghai,1,Suzhou,Jiangsu,Suzhou Shi,2026-04-09 21:33:51
 连云港市,江苏省,Lianyungang,Jiangsu,34.59845,119.21556,Asia/Shanghai,1,Lianyungang,Jiangsu,Lianyungang Shi,2026-04-09 21:33:52
@@ -365,7 +365,7 @@
 承德市,河北省,Chengde,Hebei,40.9519,117.95883,Asia/Shanghai,1,Chengde,Hebei,Chengde Prefecture,2026-04-09 21:34:14
 新乐市,河北省,Xinle,Hebei,38.34898,114.68531,Asia/Shanghai,1,Xinle,Hebei,Shijiazhuang Shi,2026-04-09 21:34:13
 晋州市,河北省,Jinzhou,Hebei,38.02867,115.03799,Asia/Shanghai,1,Jinzhou,Hebei,Shijiazhuang Shi,2026-04-09 21:34:17
-武安市,河北省,Wu'an,Hebei,,,Asia/Shanghai,0,,,,2026-04-09 23:41:55
+武安市,河北省,Wu'an,Hebei,,,Asia/Shanghai,0,,,,2026-04-09 23:59:39
 沙河市,河北省,Shahe,Hebei,36.86078,114.50215,Asia/Shanghai,1,Shahe,Hebei,Xingtai County,2026-04-09 21:34:15
 沧州市,河北省,Cangzhou,Hebei,38.31124,116.85334,Asia/Shanghai,1,Cangzhou,Hebei,Cangzhou Shi,2026-04-09 21:34:19
 河间市,河北省,Hejian,Hebei,38.43918,116.09559,Asia/Shanghai,1,Hejian,Hebei,Cangzhou Shi,2026-04-09 21:34:15
@@ -377,7 +377,7 @@
 秦皇岛市,河北省,Qinhuangdao,Hebei,39.94104,119.58936,Asia/Shanghai,1,Qinhuangdao,Hebei,Qinhuangdao Shi,2026-04-09 21:34:19
 衡水市,河北省,Hengshui,Hebei,37.73908,115.68348,Asia/Shanghai,1,Hengshui,Hebei,Hengshui Shi,2026-04-09 21:34:19
 辛集市,河北省,Xinji,Hebei,37.92595,115.21907,Asia/Shanghai,1,Xinji,Hebei,Shijiazhuang Shi,2026-04-09 21:34:20
-迁安市,河北省,Qian'an,Hebei,,,Asia/Shanghai,0,,,,2026-04-09 23:42:02
+迁安市,河北省,Qian'an,Hebei,,,Asia/Shanghai,0,,,,2026-04-09 23:59:39
 遵化市,河北省,Zunhua,Hebei,40.18645,117.95898,Asia/Shanghai,1,Zunhua,Hebei,Tangshan Shi,2026-04-09 21:34:21
 邢台市,河北省,Xingtai,Hebei,37.06217,114.49272,Asia/Shanghai,1,Xingtai,Hebei,Xingtai County,2026-04-09 21:34:22
 邯郸市,河北省,Handan,Hebei,36.60999,114.48764,Asia/Shanghai,1,Handan,Hebei,Handan Shi,2026-04-09 21:34:21
@@ -392,13 +392,13 @@
 卫辉市,河南省,Weihui,Henan,35.40747,114.0592,Asia/Shanghai,1,Weihui,Henan,Xinxiang Shi,2026-04-09 21:34:26
 周口市,河南省,Zhoukou,Henan,33.63333,114.63333,Asia/Shanghai,1,Zhoukou,Henan,Zhoukou Shi,2026-04-09 21:34:28
 商丘市,河南省,Shangqiu,Henan,34.45,115.65,Asia/Shanghai,1,Shangqiu,Henan,Shangqiu shi,2026-04-09 21:34:28
-孟州市,河南省,Mengzhou,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:42:02
+孟州市,河南省,Mengzhou,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:42
 安阳市,河南省,Anyang,Henan,36.096,114.38278,Asia/Shanghai,1,Anyang,Henan,Anyang Shi,2026-04-09 21:34:28
 巩义市,河南省,Gongyi,Henan,34.75534,113.01137,Asia/Shanghai,1,Gongyi,Henan,Zhengzhou,2026-04-09 21:34:28
 平顶山市,河南省,Pingdingshan,Henan,33.73847,113.30119,Asia/Shanghai,1,Pingdingshan,Henan,Pingdingshan Shi,2026-04-09 21:34:29
 开封市,河南省,Kaifeng,Henan,34.7986,114.30742,Asia/Shanghai,1,Kaifeng,Henan,Kaifeng Shi,2026-04-09 21:34:30
 新乡市,河南省,Xinxiang,Henan,35.19033,113.80151,Asia/Shanghai,1,Xinxiang,Henan,Xinxiang Shi,2026-04-09 21:34:30
-新密市,河南省,Xinmi,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:41:59
+新密市,河南省,Xinmi,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:40
 新郑市,河南省,Xinzheng,Henan,33.61921,114.01147,Asia/Shanghai,1,Xinzheng,Henan,luohe shi,2026-04-09 21:34:33
 林州市,河南省,Linzhou,Henan,36.06545,113.81547,Asia/Shanghai,1,Linzhou,Henan,Anyang Shi,2026-04-09 21:34:32
 永城市,河南省,Yongcheng,Henan,33.93611,116.36417,Asia/Shanghai,1,Yongcheng,Henan,Shangqiu shi,2026-04-09 21:34:34
@@ -410,16 +410,16 @@
 濮阳市,河南省,Puyang,Henan,35.76318,115.01721,Asia/Shanghai,1,Puyang,Henan,Puyang Shi,2026-04-09 21:34:36
 灵宝市,河南省,Lingbao,Henan,34.52184,110.88508,Asia/Shanghai,1,Lingbao,Henan,Sanmenxia Shi,2026-04-09 21:34:37
 焦作市,河南省,Jiaozuo,Henan,35.23972,113.23306,Asia/Shanghai,1,Jiaozuo,Henan,Jiaozuo Shi,2026-04-09 21:34:38
-登封市,河南省,Dengfeng,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:42:01
-禹州市,河南省,Yuzhou,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:42:04
+登封市,河南省,Dengfeng,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:42
+禹州市,河南省,Yuzhou,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:44
 舞钢市,河南省,Wugang,Henan,33.28763,113.5146,Asia/Shanghai,1,Wugang,Henan,Pingdingshan Shi,2026-04-09 21:34:40
-荥阳市,河南省,Xingyang,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:42:04
+荥阳市,河南省,Xingyang,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:47
 许昌市,河南省,Xuchang,Henan,34.03189,113.86299,Asia/Shanghai,1,Xuchang,Henan,Xuchang Shi,2026-04-09 21:34:42
-辉县市,河南省,Huixian,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:42:10
+辉县市,河南省,Huixian,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:49
 邓州市,河南省,Dengzhou,Henan,32.68222,112.08194,Asia/Shanghai,1,Dengzhou,Henan,Nanyang Shi,2026-04-09 21:34:44
 郑州市,河南省,Zhengzhou,Henan,34.75778,113.64861,Asia/Shanghai,1,Zhengzhou,Henan,Zhengzhou,2026-04-09 21:34:44
-长葛市,河南省,Changge,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:42:08
-项城市,河南省,Xiangcheng,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:42:13
+长葛市,河南省,Changge,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:48
+项城市,河南省,Xiangcheng,Henan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:50
 驻马店市,河南省,Zhumadian,Henan,32.97944,114.02944,Asia/Shanghai,1,Zhumadian,Henan,Zhumadian Shi,2026-04-09 21:34:49
 鹤壁市,河南省,Hebi,Henan,35.73231,114.28616,Asia/Shanghai,1,Hebi,Henan,Hebi Shi,2026-04-09 21:34:49
 东阳市,浙江省,Dongyang,Zhejiang,29.26778,120.22528,Asia/Shanghai,1,Dongyang,Zhejiang,Jinhua Shi,2026-04-09 21:34:50
@@ -432,26 +432,26 @@
 台州市,浙江省,Taizhou,Zhejiang,28.66266,121.43312,Asia/Shanghai,1,Taizhou,Zhejiang,Taizhou Shi,2026-04-09 21:34:53
 嘉兴市,浙江省,Jiaxing,Zhejiang,30.7522,120.75,Asia/Shanghai,1,Jiaxing,Zhejiang,Jiaxing Shi,2026-04-09 21:34:56
 宁波市,浙江省,Ningbo,Zhejiang,29.87819,121.54945,Asia/Shanghai,1,Ningbo,Zhejiang,Ningbo Shi,2026-04-09 21:34:55
-嵊州市,浙江省,Shengzhou,Zhejiang,,,Asia/Shanghai,0,,,,2026-04-09 23:42:10
+嵊州市,浙江省,Shengzhou,Zhejiang,,,Asia/Shanghai,0,,,,2026-04-09 23:59:51
 平湖市,浙江省,Pinghu,Zhejiang,30.70167,121.01111,Asia/Shanghai,1,Pinghu,Zhejiang,Jiaxing Shi,2026-04-09 21:34:55
 建德市,浙江省,Jiande,Zhejiang,29.475,119.26611,Asia/Shanghai,1,Baisha,Zhejiang,Hangzhou Shi,2026-04-09 21:35:09
 慈溪市,浙江省,Cixi,Zhejiang,30.1764,121.2457,Asia/Shanghai,1,Cixi,Zhejiang,Ningbo Shi,2026-04-09 21:34:56
 杭州市,浙江省,Hangzhou,Zhejiang,30.29365,120.16142,Asia/Shanghai,1,Hangzhou,Zhejiang,Hangzhou Shi,2026-04-09 21:34:56
 桐乡市,浙江省,Tongxiang,Zhejiang,30.63287,120.56081,Asia/Shanghai,1,Wutong,Zhejiang,Jiaxing Shi,2026-04-09 21:35:07
-永康市,浙江省,Yongkang,Zhejiang,,,Asia/Shanghai,0,,,,2026-04-09 23:42:11
+永康市,浙江省,Yongkang,Zhejiang,,,Asia/Shanghai,0,,,,2026-04-09 23:59:51
 江山市,浙江省,Jiangshan,Zhejiang,29.77119,121.53149,Asia/Shanghai,1,Jiangshan,Zhejiang,Ningbo Shi,2026-04-09 21:35:02
 海宁市,浙江省,Haining,Zhejiang,30.53629,120.68638,Asia/Shanghai,1,Haining,Zhejiang,Jiaxing Shi,2026-04-09 21:35:02
 温岭市,浙江省,Wenling,Zhejiang,28.37524,121.38416,Asia/Shanghai,1,Wenling,Zhejiang,Taizhou Shi,2026-04-09 21:35:03
 温州市,浙江省,Wenzhou,Zhejiang,27.99942,120.66682,Asia/Shanghai,1,Wenzhou,Zhejiang,Wenzhou Shi,2026-04-09 21:35:04
 湖州市,浙江省,Huzhou,Zhejiang,30.8703,120.0933,Asia/Shanghai,1,Huzhou,Zhejiang,Huzhou Shi,2026-04-09 21:35:05
 玉环市,浙江省,Yuhuan,Zhejiang,28.13304,121.22657,Asia/Shanghai,1,Yuhuan,Zhejiang,Taizhou Shi,2026-04-09 21:35:06
-瑞安市,浙江省,Ruian,Zhejiang,,,Asia/Shanghai,0,,,,2026-04-09 23:42:10
+瑞安市,浙江省,Ruian,Zhejiang,,,Asia/Shanghai,0,,,,2026-04-09 23:59:57
 绍兴市,浙江省,Shaoxing,Zhejiang,30.00237,120.57864,Asia/Shanghai,1,Shaoxing,Zhejiang,Shaoxing Shi,2026-04-09 21:35:07
 舟山市,浙江省,Zhoushan,Zhejiang,29.98869,122.20488,Asia/Shanghai,1,Zhoushan,Zhejiang,Zhoushan Shi,2026-04-09 21:35:08
 衢州市,浙江省,Quzhou,Zhejiang,28.95944,118.86861,Asia/Shanghai,1,Quzhou,Zhejiang,quzhou shi,2026-04-09 21:35:09
 诸暨市,浙江省,Zhuji,Zhejiang,29.71877,120.24233,Asia/Shanghai,1,Zhuji,Zhejiang,Shaoxing Shi,2026-04-09 21:35:09
 金华市,浙江省,Jinhua,Zhejiang,29.10678,119.64421,Asia/Shanghai,1,Jinhua,Zhejiang,Jinhua Shi,2026-04-09 21:35:10
-龙泉市,浙江省,Longquan,Zhejiang,,,Asia/Shanghai,0,,,,2026-04-09 23:42:18
+龙泉市,浙江省,Longquan,Zhejiang,,,Asia/Shanghai,0,,,,2026-04-09 23:59:57
 万宁市,海南省,Wanning,Hainan,18.79931,110.3841,Asia/Shanghai,1,Wanning,Hainan,Wanning Shi,2026-04-09 21:35:10
 三亚市,海南省,Sanya,Hainan,18.25435,109.50947,Asia/Shanghai,1,Sanya,Hainan,Sanya Shi,2026-04-09 21:35:11
 三沙市,海南省,Sansha,Hainan,16.83912,112.34064,Asia/Shanghai,1,Sansha,Hainan,Sansha,2026-04-09 21:35:11
@@ -462,7 +462,7 @@
 海口市,海南省,Haikou,Hainan,20.03421,110.34651,Asia/Shanghai,1,Haikou,Hainan,Haikou Shi,2026-04-09 21:35:15
 琼海市,海南省,Qionghai,Hainan,19.2425,110.46417,Asia/Shanghai,1,Qionghai,Hainan,Qionghai County,2026-04-09 21:35:17
 丹江口市,湖北省,Danjiangkou,Hubei,32.54278,111.50861,Asia/Shanghai,1,Danjiangkou,Hubei,Shiyan Shi,2026-04-09 21:35:17
-京山市,湖北省,Jingshan,Hubei,,,Asia/Shanghai,0,,,,2026-04-09 23:42:21
+京山市,湖北省,Jingshan,Hubei,,,Asia/Shanghai,0,,,,2026-04-09 23:59:56
 仙桃市,湖北省,Xiantao,Hubei,30.3708,113.44294,Asia/Shanghai,1,Sientaochen,Hubei,Tianmen,2026-04-09 21:35:24
 利川市,湖北省,Lichuan,Hubei,30.3,108.85,Asia/Shanghai,1,Lichuan,Hubei,Enshi Tujia and Miao Autonomous Prefecture,2026-04-09 21:35:18
 十堰市,湖北省,Shiyan,Hubei,32.6475,110.77806,Asia/Shanghai,1,Shiyan,Hubei,Shiyan Shi,2026-04-09 21:35:19
@@ -486,7 +486,7 @@
 汉川市,湖北省,Hanchuan,Hubei,30.65,113.76667,Asia/Shanghai,1,Hanchuan,Hubei,Xiaogan,2026-04-09 21:35:28
 洪湖市,湖北省,Honghu,Hubei,30.5,113.36667,Asia/Shanghai,1,Honghua,Hubei,Tianmen,2026-04-09 21:40:35
 潜江市,湖北省,Qianjiang,Hubei,30.421,112.8919,Asia/Shanghai,1,Qianjiang,Hubei,Qianjiang,2026-04-09 21:35:29
-石首市,湖北省,Shishou,Hubei,,,Asia/Shanghai,0,,,,2026-04-09 23:42:19
+石首市,湖北省,Shishou,Hubei,,,Asia/Shanghai,0,,,,2026-04-09 23:59:59
 老河口市,湖北省,Laohekou,Hubei,32.38583,111.66778,Asia/Shanghai,1,Laohekou,Hubei,Xiangyang,2026-04-09 21:35:30
 荆州市,湖北省,Jingzhou,Hubei,30.35028,112.19028,Asia/Shanghai,1,Jingzhou,Hubei,Jingzhou Shi,2026-04-09 21:35:30
 荆门市,湖北省,Jingmen,Hubei,31.03361,112.20472,Asia/Shanghai,1,Jingmen,Hubei,Jingmen Shi,2026-04-09 21:35:34
@@ -498,7 +498,7 @@
 麻城市,湖北省,Macheng,Hubei,31.18013,115.02213,Asia/Shanghai,1,Macheng,Hubei,Huanggang Shi,2026-04-09 21:35:37
 黄冈市,湖北省,Huanggang,Hubei,30.45143,114.87035,Asia/Shanghai,1,Hwangchow,Hubei,Huanggang Shi,2026-04-09 21:35:50
 黄石市,湖北省,Huangshi,Hubei,30.24706,115.04814,Asia/Shanghai,1,Huangshi,Hubei,Huangshi Shi,2026-04-09 21:40:31
-临湘市,湖南省,Linxiang,Hunan,,,Asia/Shanghai,0,,,,2026-04-09 23:42:19
+临湘市,湖南省,Linxiang,Hunan,,,Asia/Shanghai,0,,,,2026-04-09 23:59:59
 冷水江市,湖南省,Lengshuijiang,Hunan,27.68806,111.42944,Asia/Shanghai,1,Lengshuijiang,Hunan,Loudi District,2026-04-09 21:35:41
 吉首市,湖南省,Jishou,Hunan,28.31925,109.73346,Asia/Shanghai,1,Jishou,Hunan,Xiangxi Tujia and Miao Autonomous Prefecture,2026-04-09 21:35:41
 娄底市,湖南省,Loudi,Hunan,27.73444,111.99444,Asia/Shanghai,1,Loudi,Hunan,Loudi District,2026-04-09 21:35:42
@@ -515,7 +515,7 @@
 沅江市,湖南省,Yuanjiang,Hunan,27.91444,110.34778,Asia/Shanghai,1,Yuanjiang,Hunan,Huaihua Prefecture,2026-04-09 21:35:52
 津市市,湖南省,Jinshi,Hunan,29.60487,111.87012,Asia/Shanghai,1,Jinshi,Hunan,Changde Shi,2026-04-09 21:35:52
 洪江市,湖南省,Hongjiang,Hunan,27.11,109.99556,Asia/Shanghai,1,Hongjiang,Hunan,Huaihua Prefecture,2026-04-09 21:35:54
-浏阳市,湖南省,Liuyang,Hunan,,,Asia/Shanghai,0,,,,2026-04-09 23:42:19
+浏阳市,湖南省,Liuyang,Hunan,,,Asia/Shanghai,0,,,,2026-04-10 00:00:01
 涟源市,湖南省,Lianyuan,Hunan,27.68833,111.66417,Asia/Shanghai,1,Lianyuan,Hunan,Loudi District,2026-04-09 21:35:54
 湘乡市,湖南省,Xiangxiang,Hunan,27.73333,112.53333,Asia/Shanghai,1,Xiangxiang,Hunan,Xiangtan Shi,2026-04-09 21:35:55
 湘潭市,湖南省,Xiangtan,Hunan,27.85,112.9,Asia/Shanghai,1,Xiangtan,Hunan,Xiangtan Shi,2026-04-09 21:35:58
@@ -528,7 +528,7 @@
 醴陵市,湖南省,Liling,Hunan,25.71831,112.2958,Asia/Shanghai,1,Liling,Hunan,Prefecture of Chenzhou,2026-04-09 21:35:58
 长沙市,湖南省,Changsha,Hunan,28.19874,112.97087,Asia/Shanghai,1,Changsha,Hunan,Changsha Shi,2026-04-09 21:35:59
 韶山市,湖南省,Shaoshan,Hunan,27.91667,112.51667,Asia/Shanghai,1,Shaoshan,Hunan,Xiangtan Shi,2026-04-09 21:36:00
-澳门,澳门特别行政区,Macau,Macau,,,Asia/Macau,0,,,,2026-04-09 23:42:19
+澳门,澳门特别行政区,Macau,Macau,,,Asia/Macau,0,,,,2026-04-10 00:00:01
 临夏市,甘肃省,Linxia,Gansu,35.0455,104.01783,Asia/Shanghai,1,Linxia,Gansu,Dingxi Shi,2026-04-09 21:36:00
 兰州市,甘肃省,Lanzhou,Gansu,36.05701,103.83987,Asia/Shanghai,1,Lanzhou,Gansu,Lanzhou Shi,2026-04-09 21:36:01
 华亭市,甘肃省,Huating,Gansu,35.37601,105.28389,Asia/Shanghai,1,Huating,Gansu,Dingxi Shi,2026-04-09 21:36:02
@@ -551,7 +551,7 @@
 南平市,福建省,Nanping,Fujian,26.645,118.17361,Asia/Shanghai,1,Nanping,Fujian,Nanping Shi,2026-04-09 21:36:11
 厦门市,福建省,Xiamen,Fujian,24.47979,118.08187,Asia/Shanghai,1,Xiamen,Fujian,,2026-04-09 21:36:14
 宁德市,福建省,Ningde,Fujian,26.66167,119.52278,Asia/Shanghai,1,Ningde,Fujian,Ningde Shi,2026-04-09 21:36:12
-建瓯市,福建省,Jian'ou,Fujian,,,Asia/Shanghai,0,,,,2026-04-09 23:42:29
+建瓯市,福建省,Jian'ou,Fujian,,,Asia/Shanghai,0,,,,2026-04-10 00:00:11
 晋江市,福建省,Jinjiang,Fujian,24.81978,118.57415,Asia/Shanghai,1,Jinjiang,Fujian,Quanzhou Shi,2026-04-09 21:36:15
 武夷山市,福建省,Wuyishan,Fujian,27.75995,118.03066,Asia/Shanghai,1,Wuyishan,Fujian,Nanping Shi,2026-04-09 21:36:14
 永安市,福建省,Yong'an,Fujian,25.3,118.2167,Asia/Shanghai,1,Yong'an,Fujian,Quanzhou Shi,2026-04-09 21:36:16
@@ -566,8 +566,8 @@
 莆田市,福建省,Putian,Fujian,25.43944,119.01028,Asia/Shanghai,1,Putian,Fujian,Putian Shi,2026-04-09 21:36:24
 邵武市,福建省,Shaowu,Fujian,27.34089,117.4831,Asia/Shanghai,1,Shaowu,Fujian,Nanping Shi,2026-04-09 21:36:24
 龙岩市,福建省,Longyan,Fujian,25.07485,117.01775,Asia/Shanghai,1,Longyan,Fujian,Longyan Shi,2026-04-09 21:36:22
-龙海市,福建省,Longhai,Fujian,,,Asia/Shanghai,0,,,,2026-04-09 23:42:26
-山南市,西藏自治区,Shannan,Tibet,,,Asia/Shanghai,0,,,,2026-04-09 23:42:28
+龙海市,福建省,Longhai,Fujian,,,Asia/Shanghai,0,,,,2026-04-10 00:00:06
+山南市,西藏自治区,Shannan,Tibet,,,Asia/Shanghai,0,,,,2026-04-10 00:00:09
 拉萨市,西藏自治区,Lhasa,Tibet,29.65,91.1,Asia/Shanghai,1,Lhasa,Tibet,Lhasa Shi,2026-04-09 21:36:27
 日喀则市,西藏自治区,Xigazê,Tibet,29.25,88.88333,Asia/Shanghai,1,Xigazê,Tibet,Rikaze Diqu,2026-04-09 21:36:26
 昌都市,西藏自治区,Qamdo,Tibet,31.1304,97.17982,Asia/Shanghai,1,Chamdo,Tibet,Chamdo City,2026-04-09 21:36:33
@@ -581,14 +581,14 @@
 安顺市,贵州省,Anshun,Guizhou,26.25,105.93333,Asia/Shanghai,1,Anshun,Guizhou,Anshun Shi,2026-04-09 21:36:34
 毕节市,贵州省,Bijie,Guizhou,27.30193,105.28627,Asia/Shanghai,1,Bijie,Guizhou,Bijie Diqu,2026-04-09 21:36:34
 清镇市,贵州省,Qingzhen,Guizhou,26.55,106.46667,Asia/Shanghai,1,Qingzhen,Guizhou,Guiyang Shi,2026-04-09 21:36:34
-盘州市,贵州省,Panzhou,Guizhou,,,Asia/Shanghai,0,,,,2026-04-09 23:42:26
+盘州市,贵州省,Panzhou,Guizhou,,,Asia/Shanghai,0,,,,2026-04-10 00:00:08
 福泉市,贵州省,Fuquan,Guizhou,26.7,107.55,Asia/Shanghai,1,Fuquan,Guizhou,Qiannan Buyei and Miao Autonomous Prefecture,2026-04-09 21:36:35
 贵阳市,贵州省,Guiyang,Guizhou,26.58333,106.71667,Asia/Shanghai,1,Guiyang,Guizhou,Guiyang Shi,2026-04-09 21:36:36
 赤水市,贵州省,Chishui,Guizhou,28.57222,105.70667,Asia/Shanghai,1,Chishui,Guizhou,Zunyi Shi,2026-04-09 21:36:36
 遵义市,贵州省,Zunyi,Guizhou,27.68667,106.90722,Asia/Shanghai,1,Zunyi,Guizhou,Zunyi Shi,2026-04-09 21:36:36
 都匀市,贵州省,Duyun,Guizhou,26.26667,107.51667,Asia/Shanghai,1,Duyun,Guizhou,Qiannan Buyei and Miao Autonomous Prefecture,2026-04-09 21:36:39
 铜仁市,贵州省,Tongren,Guizhou,27.71722,109.18528,Asia/Shanghai,1,Tongren,Guizhou,Tongren Diqu,2026-04-09 21:36:37
-东港市,辽宁省,Donggang,Liaoning,,,Asia/Shanghai,0,,,,2026-04-09 23:42:28
+东港市,辽宁省,Donggang,Liaoning,,,Asia/Shanghai,0,,,,2026-04-10 00:00:09
 丹东市,辽宁省,Dandong,Liaoning,40.12917,124.39472,Asia/Shanghai,1,Dandong,Liaoning,Dandong Shi,2026-04-09 21:36:38
 兴城市,辽宁省,Xingcheng,Liaoning,40.61667,120.71667,Asia/Shanghai,1,Xingcheng,Liaoning,Huludao Shi,2026-04-09 21:36:39
 凌海市,辽宁省,Linghai,Liaoning,41.16528,121.36667,Asia/Shanghai,1,Linghai,Liaoning,Jinzhou Shi,2026-04-09 21:36:40
@@ -606,7 +606,7 @@
 本溪市,辽宁省,Benxi,Liaoning,41.28861,123.765,Asia/Shanghai,1,Benxi,Liaoning,Benxi Shi,2026-04-09 21:36:46
 沈阳市,辽宁省,Shenyang,Liaoning,41.79222,123.43278,Asia/Shanghai,1,Shenyang,Liaoning,Shenyang Shi,2026-04-09 21:36:46
 海城市,辽宁省,Haicheng,Liaoning,40.85158,122.74754,Asia/Shanghai,1,Haicheng,Liaoning,Anshan Shi,2026-04-09 21:36:47
-灯塔市,辽宁省,Dengta,Liaoning,,,Asia/Shanghai,0,,,,2026-04-09 23:42:31
+灯塔市,辽宁省,Dengta,Liaoning,,,Asia/Shanghai,0,,,,2026-04-10 00:00:09
 瓦房店市,辽宁省,Wafangdian,Liaoning,39.61833,122.00806,Asia/Shanghai,1,Wafangdian,Liaoning,Dalian Shi,2026-04-09 21:36:48
 盖州市,辽宁省,Gaizhou,Liaoning,40.39417,122.36861,Asia/Shanghai,1,Gaizhou,Liaoning,Yingkou,2026-04-09 21:36:49
 盘锦市,辽宁省,Panjin,Liaoning,41.121,122.0739,Asia/Shanghai,1,Panjin,Liaoning,Panjin Shi,2026-04-09 21:36:49
@@ -626,8 +626,8 @@
 安康市,陕西省,Ankang,Shaanxi,32.68,109.01722,Asia/Shanghai,1,Ankang,Shaanxi,Ankang Shi,2026-04-09 21:36:56
 宝鸡市,陕西省,Baoji,Shaanxi,34.36775,107.23705,Asia/Shanghai,1,Baoji,Shaanxi,Baoji,2026-04-09 21:36:58
 延安市,陕西省,Yan'an,Shaanxi,36.47631,109.46537,Asia/Shanghai,1,Yan'an Nanniwan Airport,Shaanxi,Yan'an City,2026-04-09 21:37:03
-彬州市,陕西省,Binzhou,Shaanxi,,,Asia/Shanghai,0,,,,2026-04-09 23:42:36
-榆林市,陕西省,Yulin,Shaanxi,,,Asia/Shanghai,0,,,,2026-04-09 23:42:36
+彬州市,陕西省,Binzhou,Shaanxi,,,Asia/Shanghai,0,,,,2026-04-10 00:00:17
+榆林市,陕西省,Yulin,Shaanxi,,,Asia/Shanghai,0,,,,2026-04-10 00:00:15
 汉中市,陕西省,Hanzhong,Shaanxi,33.07507,107.02214,Asia/Shanghai,1,Hanzhong,Shaanxi,hanzhong shi,2026-04-09 21:36:59
 渭南市,陕西省,Weinan,Shaanxi,34.50355,109.50891,Asia/Shanghai,1,Weinan,Shaanxi,weinan shi,2026-04-09 21:37:00
 神木市,陕西省,Shenmu,Shaanxi,38.82444,110.48306,Asia/Shanghai,1,Shenmu,Shaanxi,Yulin Shi,2026-04-09 21:37:00
@@ -637,10 +637,10 @@
 德令哈市,青海省,Delingha,Qinghai,37.376,97.37457,Asia/Shanghai,1,Delhi,Qinghai,Haixi,2026-04-09 21:37:11
 格尔木市,青海省,Golmud,Qinghai,36.40672,94.90061,Asia/Shanghai,1,Golmud,Qinghai,Haixi,2026-04-09 21:37:03
 海东市,青海省,Haidong,Qinghai,36.48,102.41639,Asia/Shanghai,1,Nianbo,Qinghai,Haidong Diqu,2026-04-09 21:37:09
-玉树市,青海省,Yushu,Qinghai,,,Asia/Shanghai,0,,,,2026-04-09 23:42:37
+玉树市,青海省,Yushu,Qinghai,,,Asia/Shanghai,0,,,,2026-04-10 00:00:21
 茫崖市,青海省,Mangnai,Qinghai,37.86483,91.76262,Asia/Shanghai,1,Lao Mangnai,Qinghai,Haixi,2026-04-09 21:37:10
 西宁市,青海省,Xining,Qinghai,36.62554,101.75739,Asia/Shanghai,1,Xining,Qinghai,Xining Shi,2026-04-09 21:37:08
-香港,香港特别行政区,Hong Kong,Hong Kong,,,Asia/Hong_Kong,0,,,,2026-04-09 23:42:36
+香港,香港特别行政区,Hong Kong,Hong Kong,,,Asia/Hong_Kong,0,,,,2026-04-10 00:00:18
 七台河市,黑龙江省,Qitaihe,Heilongjiang,45.768,130.9953,Asia/Shanghai,1,Qitaihe,Heilongjiang,Qitaihe Shi,2026-04-09 21:37:10
 东宁市,黑龙江省,Dongning,Heilongjiang,44.08436,131.11841,Asia/Shanghai,1,Dongning,Heilongjiang,Mudanjiang Shi,2026-04-09 21:37:11
 五大连池市,黑龙江省,Wudalianchi,Heilongjiang,48.51431,126.19874,Asia/Shanghai,1,Wudalianchi,Heilongjiang,Heihe,2026-04-09 21:37:12
@@ -652,7 +652,7 @@
 同江市,黑龙江省,Tongjiang,Heilongjiang,46.65178,126.44979,Asia/Shanghai,1,Tongjiang,Heilongjiang,Suihua Shi,2026-04-09 21:37:14
 哈尔滨市,黑龙江省,Harbin,Heilongjiang,45.75,126.65,Asia/Shanghai,1,Harbin,Heilongjiang,Harbin Shi,2026-04-09 21:37:16
 大庆市,黑龙江省,Daqing,Heilongjiang,46.58333,125.0,Asia/Shanghai,1,Daqing,Heilongjiang,Daqing Shi,2026-04-09 21:37:17
-宁安市,黑龙江省,Ning'an,Heilongjiang,,,Asia/Shanghai,0,,,,2026-04-09 23:42:42
+宁安市,黑龙江省,Ning'an,Heilongjiang,,,Asia/Shanghai,0,,,,2026-04-10 00:00:22
 安达市,黑龙江省,Anda,Heilongjiang,46.44867,125.30161,Asia/Shanghai,1,Anda,Heilongjiang,Suihua Shi,2026-04-09 21:37:16
 密山市,黑龙江省,Mishan,Heilongjiang,45.55,131.88333,Asia/Shanghai,1,Mishan,Heilongjiang,Jixi Shi,2026-04-09 21:37:17
 富锦市,黑龙江省,Fujin,Heilongjiang,47.24723,132.02957,Asia/Shanghai,1,Fujin,Heilongjiang,Jiamusi Shi,2026-04-09 21:37:17
