@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% set page_name = "collect" %}
+
+{% block title %}数据采集 | 空气质量数据分析与预测系统{% endblock %}
+
+{% block content %}
+<section class="panel collect-hero-panel">
+    <div class="collect-hero-copy">
+        <h2>数据采集管理</h2>
+        <p>当前页面聚焦实时采集、自动采集定时任务与历史范围采集，便于答辩时说明数据获取与调度方案。</p>
+    </div>
+
+    <div id="collectSummaryCards" class="metric-grid metric-grid-3 collect-summary-grid"></div>
+    <div id="collectorMetaMessage" class="inline-message">正在加载全国城市主数据...</div>
+</section>
+
+<section class="collect-workspace-grid">
+    <section class="panel auto-collector-panel">
+        <div class="auto-collector-head">
+            <div class="panel-title">自动采集定时任务设置</div>
+            <p>支持按固定间隔自动执行真实小时数据采集，也支持通过“立即采集”手动触发一次，统一在这里管理。</p>
+        </div>
+        <form id="autoCollectorForm" class="auto-collector-form">
+            <label class="auto-switch">
+                <input id="autoCollectorEnabled" name="enabled" type="checkbox">
+                <span class="auto-switch-copy">
+                    <strong>开启自动实时采集</strong>
+                    <small>保存后按设定频率自动执行</small>
+                </span>
+            </label>
+            <label class="auto-field">
+                <span>采集间隔（秒）</span>
+                <input id="autoCollectorInterval" name="interval_seconds" type="number" min="60" step="60">
+                <small>建议 1800 秒，可根据演示需要调整</small>
+            </label>
+            <label class="auto-field">
+                <span>单次回补时长（小时）</span>
+                <input id="autoCollectorHours" name="collection_hours" type="number" min="1" step="1">
+                <small>每次执行回补最近多少小时的数据</small>
+            </label>
+            <div class="upload-actions auto-actions">
+                <button type="submit" class="btn-primary">保存设置</button>
+                <button id="runAutoCollectorNowButton" type="button" class="btn-secondary">立即采集真实小时数据</button>
+            </div>
+        </form>
+        <div id="autoCollectorLastRun" class="auto-last-run">上次执行时间：--</div>
+        <div id="autoCollectorMessage" class="inline-message status-message-hidden"></div>
+        <div id="autoTaskStatusCard" class="history-task-card auto-task-card">
+            <div class="history-task-top">
+                <div>
+                    <div class="panel-title">立即采集执行进度</div>
+                    <div id="autoTaskStatusText" class="history-task-status">当前没有正在执行的立即采集任务</div>
+                </div>
+                <div id="autoTaskPercent" class="history-task-percent">0%</div>
+            </div>
+            <div class="history-progress-bar">
+                <div id="autoTaskProgressBar" class="history-progress-fill"></div>
+            </div>
+            <div id="autoTaskMeta" class="history-task-meta">点击“立即采集真实小时数据”后，这里会显示执行中状态和详细日志。</div>
+            <div id="autoTaskLogList" class="history-task-log-list"></div>
+        </div>
+    </section>
+
+    <section class="panel collect-history-panel">
+        <div class="collect-subhead">
+            <div class="panel-title">历史范围采集</div>
+            <p>支持按日期范围回补历史空气质量数据，可选择全部城市、指定省份或当前城市。</p>
+        </div>
+        <div class="history-config-card">
+            <div class="range-shortcuts">
+                <button type="button" class="btn-secondary range-shortcut" data-days="7">近 7 天</button>
+                <button type="button" class="btn-secondary range-shortcut" data-days="30">近 30 天</button>
+                <button type="button" class="btn-secondary range-shortcut" data-days="90">近 90 天</button>
+                <button type="button" class="btn-secondary range-shortcut" data-days="180">近半年</button>
+                <button type="button" class="btn-secondary range-shortcut" data-days="365">近一年</button>
+                <span id="historyRangeHint" class="range-hint">当前采集区间：7 天</span>
+            </div>
+            <form id="historyCollectorForm" class="history-form">
+                <label>
+                    开始日期
+                    <input id="historyStartDate" name="start_date" type="date">
+                </label>
+                <label>
+                    结束日期
+                    <input id="historyEndDate" name="end_date" type="date">
+                </label>
+                <label>
+                    采集范围
+                    <select id="historyScopeSelect" name="scope">
+                        <option value="all">全部城市</option>
+                        <option value="province">指定省份</option>
+                        <option value="city">当前城市</option>
+                    </select>
+                </label>
+                <label>
+                    指定省份
+                    <select id="historyProvinceSelect" name="province" disabled></select>
+                </label>
+                <div class="upload-actions">
+                    <button id="historyCollectSubmitButton" type="submit" class="btn-primary">采集历史数据</button>
+                </div>
+            </form>
+        </div>
+        <div id="historyCollectorMessage" class="inline-message status-message-hidden"></div>
+        <div id="historyTaskStatusCard" class="history-task-card">
+            <div class="history-task-top">
+                <div>
+                    <div class="panel-title">历史采集执行进度</div>
+                    <div id="historyTaskStatusText" class="history-task-status">当前没有正在执行的历史采集任务</div>
+                </div>
+                <div id="historyTaskPercent" class="history-task-percent">0%</div>
+            </div>
+            <div class="history-progress-bar">
+                <div id="historyTaskProgressBar" class="history-progress-fill"></div>
+            </div>
+            <div id="historyTaskMeta" class="history-task-meta">点击上方“采集历史数据”后，这里会显示执行中状态和分批进度。</div>
+            <div id="historyTaskLogList" class="history-task-log-list"></div>
+        </div>
+    </section>
+</section>
+
+<section class="panel table-panel">
+    <div class="collect-subhead collect-log-head">
+        <div class="panel-title">采集任务日志</div>
+        <p>统一记录真实小时采集、历史范围采集等执行结果，便于演示系统运行过程。</p>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>任务</th>
+                    <th>来源</th>
+                    <th>状态</th>
+                    <th>条数</th>
+                    <th>执行说明</th>
+                    <th>执行时间</th>
+                </tr>
+            </thead>
+            <tbody id="crawlerTaskTable"></tbody>
+        </table>
+    </div>
+    <div id="crawlerTaskPagination" class="pagination-bar"></div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/collect.js') }}"></script>
+{% endblock %}

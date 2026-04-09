@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% set page_name = "home" %}
+
+{% block title %}首页总览 | 空气质量数据分析与预测系统{% endblock %}
+
+{% block content %}
+<section class="panel">
+    <div class="panel-header">
+        <div>
+            <h2>城市空气质量总览</h2>
+            <p>参考空气质量分析平台布局，先完成可展示的多城市总览与趋势分析。</p>
+        </div>
+        <div class="toolbar">
+            <label>
+                年份
+                <select id="overviewYearSelect">
+                    <option value="2024">2024</option>
+                </select>
+            </label>
+            <button id="overviewQueryButton" class="btn-primary">查询</button>
+        </div>
+    </div>
+
+    <div id="overviewCards" class="metric-grid"></div>
+    <div class="status-strip">
+        <span id="overviewLevel" class="tag tag-blue">空气质量等级</span>
+        <span id="overviewPrimaryPollutant" class="tag tag-orange">首要污染物</span>
+        <span id="overviewSuggestion" class="tag tag-green">健康建议</span>
+    </div>
+</section>
+
+<section class="chart-grid chart-grid-2">
+    <div class="panel chart-panel">
+        <div class="panel-title">AQI 年度变化分析</div>
+        <div id="overviewTrendChart" class="chart-box"></div>
+    </div>
+    <div class="panel chart-panel">
+        <div class="panel-title">主要污染物月均值</div>
+        <div id="overviewPollutantChart" class="chart-box"></div>
+    </div>
+    <div class="panel chart-panel">
+        <div class="panel-title">城市空气质量排名</div>
+        <div id="overviewRankChart" class="chart-box"></div>
+    </div>
+    <div class="panel chart-panel">
+        <div class="panel-title">空气质量等级分布</div>
+        <div id="overviewQualityPie" class="chart-box"></div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

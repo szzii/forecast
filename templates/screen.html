@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空气质量可视化大屏</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/screen.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head>
+<body class="screen-page">
+    <div class="screen-shell">
+        <header class="screen-header">
+            <div>
+                <div class="screen-subtitle">Air Quality Big Screen</div>
+                <h1>空气质量分析与预测可视化大屏</h1>
+            </div>
+            <div class="screen-meta">
+                <a href="{{ url_for('pages.home') }}">返回普通页面</a>
+                <span id="screenUpdatedAt">--</span>
+            </div>
+        </header>
+
+        <section id="screenSummaryCards" class="screen-summary"></section>
+
+        <section class="screen-grid">
+            <div class="screen-panel">
+                <div class="screen-panel-title">城市 AQI 排名</div>
+                <div id="screenRankingChart" class="screen-chart"></div>
+            </div>
+            <div class="screen-panel screen-panel-wide">
+                <div class="screen-panel-title-row">
+                    <div class="screen-panel-title" id="screenTrendTitle">年度趋势监测</div>
+                    <div class="screen-trend-toolbar">
+                        <label for="screenCitySearch">趋势城市</label>
+                        <input id="screenCitySearch" type="search" list="screenCityOptions" placeholder="输入或选择城市" aria-label="大屏趋势城市">
+                        <datalist id="screenCityOptions"></datalist>
+                    </div>
+                </div>
+                <div id="screenTrendChart" class="screen-chart"></div>
+            </div>
+            <div class="screen-panel">
+                <div class="screen-panel-title">空气质量等级分布</div>
+                <div id="screenDistributionChart" class="screen-chart"></div>
+            </div>
+            <div class="screen-panel">
+                <div class="screen-panel-title" id="screenForecastTitle">未来 12 小时预测波动</div>
+                <div id="screenForecastChart" class="screen-chart"></div>
+            </div>
+            <div class="screen-panel">
+                <div class="screen-panel-title">重点城市预警</div>
+                <div class="screen-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>城市</th>
+                                <th>AQI</th>
+                                <th>等级</th>
+                                <th>首污</th>
+                            </tr>
+                        </thead>
+                        <tbody id="screenAlertTable"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="screen-panel">
+                <div class="screen-panel-title">采集任务健康状态</div>
+                <div class="screen-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>任务</th>
+                                <th>状态</th>
+                                <th>执行时间</th>
+                            </tr>
+                        </thead>
+                        <tbody id="screenCrawlerTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/screen.js') }}"></script>
+</body>
+</html>

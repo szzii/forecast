@@ -1,0 +1,10 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+
+air_quality_demo.db
+
+data/uploads/
+data/real_air_quality_realtime_*.csv
+data/air_quality_history_*.csv

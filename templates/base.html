@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}空气质量数据分析与预测系统{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head>
+<body data-page="{{ page_name | default('home') }}">
+    <header class="site-header">
+        <div class="site-header-main">
+            <div class="site-brand">
+                <div class="brand-mark">AQ</div>
+                <div>
+                    <h1>空气质量数据分析与预测系统</h1>
+                    <p>基于大数据的空气质量分析、预测与可视化展示</p>
+                </div>
+            </div>
+            <div class="site-header-note">教学演示版</div>
+        </div>
+        <div class="site-header-toolbar">
+            <nav class="site-nav">
+                <a href="{{ url_for('pages.home') }}" data-nav="home">首页总览</a>
+                <a href="{{ url_for('pages.trend') }}" data-nav="trend">趋势分析</a>
+                <a href="{{ url_for('pages.collect') }}" data-nav="collect">数据采集</a>
+                <a href="{{ url_for('pages.forecast') }}" data-nav="forecast">空气质量预测</a>
+                <a href="{{ url_for('pages.screen') }}" data-nav="screen">可视化大屏</a>
+            </nav>
+            <div class="header-select-group">
+                <label for="headerCitySearch">当前城市</label>
+                <input id="headerCitySearch" type="search" list="headerCityOptions" placeholder="搜索城市" aria-label="当前城市搜索">
+                <datalist id="headerCityOptions"></datalist>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
