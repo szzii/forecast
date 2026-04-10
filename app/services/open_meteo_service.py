@@ -87,17 +87,25 @@ def _rows_from_payload(city_info: dict, air_payload: dict, weather_payload: dict
         if record_dt > now:
             continue
         co_micrograms = air_hourly["carbon_monoxide"][idx]
+        pm25 = air_hourly["pm2_5"][idx]
+        pm10 = air_hourly["pm10"][idx]
+        so2 = air_hourly["sulphur_dioxide"][idx]
+        no2 = air_hourly["nitrogen_dioxide"][idx]
+        o3 = air_hourly["ozone"][idx]
+        # 关键污染物任一缺测则跳过该小时，避免导入时报"不能为空"
+        if any(v is None for v in (pm25, pm10, so2, no2, o3)):
+            continue
         rows.append(
             {
                 "city": city_info["city"],
                 "province": city_info["province"],
                 "record_time": record_time.replace("T", " "),
-                "pm25": air_hourly["pm2_5"][idx],
-                "pm10": air_hourly["pm10"][idx],
-                "so2": air_hourly["sulphur_dioxide"][idx],
-                "no2": air_hourly["nitrogen_dioxide"][idx],
+                "pm25": pm25,
+                "pm10": pm10,
+                "so2": so2,
+                "no2": no2,
                 "co": round((co_micrograms or 0) / 1000, 3),
-                "o3": air_hourly["ozone"][idx],
+                "o3": o3,
                 "temperature": weather_hourly["temperature_2m"][weather_idx],
                 "humidity": weather_hourly["relative_humidity_2m"][weather_idx],
                 "wind_speed": weather_hourly["wind_speed_10m"][weather_idx],

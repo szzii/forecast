@@ -140,17 +140,22 @@ def _import_air_quality_path(file_path, safe_name, mode="daily", source_name="ma
         success_rows = 0
         inserted_rows = 0
         updated_rows = 0
+        skipped_rows = 0
         cities = set()
 
         for _, row in df.iterrows():
-            pollutant_payload = {
-                "so2": _to_float(row["so2"], "SO2"),
-                "no2": _to_float(row["no2"], "NO2"),
-                "co": _to_float(row["co"], "CO"),
-                "o3": _to_float(row["o3_8h"] if mode == "daily" else row["o3"], "O3"),
-                "pm10": _to_float(row["pm10"], "PM10"),
-                "pm25": _to_float(row["pm25"], "PM2.5"),
-            }
+            try:
+                pollutant_payload = {
+                    "so2": _to_float(row["so2"], "SO2"),
+                    "no2": _to_float(row["no2"], "NO2"),
+                    "co": _to_float(row["co"], "CO"),
+                    "o3": _to_float(row["o3_8h"] if mode == "daily" else row["o3"], "O3"),
+                    "pm10": _to_float(row["pm10"], "PM10"),
+                    "pm25": _to_float(row["pm25"], "PM2.5"),
+                }
+            except ValueError:
+                skipped_rows += 1
+                continue
             aqi_result = calculate_aqi(pollutant_payload, mode=mode)
             payload = {
                 "city": _standardize_city_name(row["city"]),
@@ -185,7 +190,8 @@ def _import_air_quality_path(file_path, safe_name, mode="daily", source_name="ma
         log.success_rows = success_rows
         log.inserted_rows = inserted_rows
         log.updated_rows = updated_rows
-        log.message = f"成功导入 {success_rows} 行，覆盖城市 {len(cities)} 个。"
+        skip_note = f"，跳过缺测行 {skipped_rows} 条" if skipped_rows else ""
+        log.message = f"成功导入 {success_rows} 行，覆盖城市 {len(cities)} 个{skip_note}。"
         db.session.commit()
 
         return {
