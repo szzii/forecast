@@ -24,3 +24,32 @@ def ensure_database_exists(database_uri):
             connection.commit()
     finally:
         engine.dispose()
+
+
+def ensure_prediction_record_columns(database_uri):
+    if not database_uri:
+        return
+
+    engine = create_engine(database_uri)
+    statements = {
+        "so2_pred": "ALTER TABLE prediction_records ADD COLUMN so2_pred FLOAT",
+        "no2_pred": "ALTER TABLE prediction_records ADD COLUMN no2_pred FLOAT",
+        "co_pred": "ALTER TABLE prediction_records ADD COLUMN co_pred FLOAT",
+        "o3_pred": "ALTER TABLE prediction_records ADD COLUMN o3_pred FLOAT",
+    }
+
+    try:
+        with engine.begin() as connection:
+            table_names = set(connection.dialect.get_table_names(connection))
+            if "prediction_records" not in table_names:
+                return
+            column_names = {
+                column["name"]
+                for column in connection.dialect.get_columns(connection, "prediction_records")
+            }
+            for column_name, statement in statements.items():
+                if column_name in column_names:
+                    continue
+                connection.execute(text(statement))
+    finally:
+        engine.dispose()

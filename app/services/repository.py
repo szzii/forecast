@@ -235,7 +235,9 @@ def get_trend(city, year):
                 "aqi_avg": round(sum(item.aqi for item in month_records) / len(month_records), 1),
                 "pm25_avg": round(sum(item.pm25 for item in month_records) / len(month_records), 1),
                 "pm10_avg": round(sum(item.pm10 for item in month_records) / len(month_records), 1),
+                "so2_avg": round(sum(item.so2 for item in month_records) / len(month_records), 1),
                 "no2_avg": round(sum(item.no2 for item in month_records) / len(month_records), 1),
+                "co_avg": round(sum(item.co for item in month_records) / len(month_records), 3),
                 "o3_avg": round(sum(item.o3 for item in month_records) / len(month_records), 1),
             }
         )
@@ -331,6 +333,10 @@ def get_forecast(city):
             "ensemble_aqi": item.ensemble_aqi,
             "pm25_pred": item.pm25_pred,
             "pm10_pred": item.pm10_pred,
+            "so2_pred": item.so2_pred,
+            "no2_pred": item.no2_pred,
+            "co_pred": item.co_pred,
+            "o3_pred": item.o3_pred,
         }
         for item in records
     ]

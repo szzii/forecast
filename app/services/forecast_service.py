@@ -241,6 +241,11 @@ def _predict_pm(reference_value: float, latest_value: float, latest_aqi: float, 
     return round(_clamp(reference_value * 0.55 + predicted_aqi * ratio_value * 0.45, 0, 500), 1)
 
 
+def _predict_component(reference_value: float, latest_value: float, latest_aqi: float, predicted_aqi: float, upper: float = 500.0) -> float:
+    ratio_value = latest_value / latest_aqi if latest_aqi else 0
+    return round(_clamp(reference_value * 0.55 + predicted_aqi * ratio_value * 0.45, 0, upper), 1)
+
+
 def _blend_weights(trend_metrics: dict, xgboost_metrics: dict) -> tuple[float, float]:
     trend_error = max(float(trend_metrics.get("mae", 0.0)), 0.1)
     xgboost_error = max(float(xgboost_metrics.get("mae", 0.0)), 0.1)
@@ -272,6 +277,10 @@ def generate_forecast_for_city(city: str, horizon: int = 24) -> dict:
         aqi_result = _train_xgboost(_build_supervised_dataset(records, "aqi"))
         pm25_result = _train_xgboost(_build_supervised_dataset(records, "pm25"))
         pm10_result = _train_xgboost(_build_supervised_dataset(records, "pm10"))
+        so2_result = _train_xgboost(_build_supervised_dataset(records, "so2"))
+        no2_result = _train_xgboost(_build_supervised_dataset(records, "no2"))
+        co_result = _train_xgboost(_build_supervised_dataset(records, "co"))
+        o3_result = _train_xgboost(_build_supervised_dataset(records, "o3"))
     except RuntimeError as exc:
         return {"status": "failed", "message": str(exc)}
 
@@ -342,6 +351,10 @@ def generate_forecast_for_city(city: str, horizon: int = 24) -> dict:
     aqi_history = [float(item.aqi) for item in records]
     pm25_history = [float(item.pm25) for item in records]
     pm10_history = [float(item.pm10) for item in records]
+    so2_history = [float(item.so2) for item in records]
+    no2_history = [float(item.no2) for item in records]
+    co_history = [float(item.co) for item in records]
+    o3_history = [float(item.o3) for item in records]
 
     for step in range(1, horizon + 1):
         forecast_time = latest.record_time + timedelta(hours=step)
@@ -370,6 +383,18 @@ def generate_forecast_for_city(city: str, horizon: int = 24) -> dict:
             pm25_prediction = _predict_pm(reference.pm25, latest.pm25, latest.aqi, ensemble_prediction)
         if pm10_prediction is None:
             pm10_prediction = _predict_pm(reference.pm10, latest.pm10, latest.aqi, ensemble_prediction)
+        so2_prediction = _predict_with_booster(so2_result.booster, so2_history, forecast_time, context_values=aqi_history)
+        no2_prediction = _predict_with_booster(no2_result.booster, no2_history, forecast_time, context_values=aqi_history)
+        co_prediction = _predict_with_booster(co_result.booster, co_history, forecast_time, context_values=aqi_history, upper=50.0)
+        o3_prediction = _predict_with_booster(o3_result.booster, o3_history, forecast_time, context_values=aqi_history)
+        if so2_prediction is None:
+            so2_prediction = _predict_component(reference.so2, latest.so2, latest.aqi, ensemble_prediction)
+        if no2_prediction is None:
+            no2_prediction = _predict_component(reference.no2, latest.no2, latest.aqi, ensemble_prediction)
+        if co_prediction is None:
+            co_prediction = _predict_component(reference.co, latest.co, latest.aqi, ensemble_prediction, upper=50.0)
+        if o3_prediction is None:
+            o3_prediction = _predict_component(reference.o3, latest.o3, latest.aqi, ensemble_prediction)
 
         prediction_rows.append(
             PredictionRecord(
@@ -382,11 +407,19 @@ def generate_forecast_for_city(city: str, horizon: int = 24) -> dict:
                 ensemble_aqi=ensemble_prediction,
                 pm25_pred=pm25_prediction,
                 pm10_pred=pm10_prediction,
+                so2_pred=so2_prediction,
+                no2_pred=no2_prediction,
+                co_pred=co_prediction,
+                o3_pred=o3_prediction,
             )
         )
         aqi_history.append(ensemble_prediction)
         pm25_history.append(pm25_prediction)
         pm10_history.append(pm10_prediction)
+        so2_history.append(so2_prediction)
+        no2_history.append(no2_prediction)
+        co_history.append(co_prediction)
+        o3_history.append(o3_prediction)
 
     db.session.add_all(prediction_rows)
     db.session.commit()

@@ -12,9 +12,10 @@ from .services.auto_collection_service import (
     begin_auto_collection_run,
     finish_auto_collection_run,
     get_auto_collection_payload,
-    run_auto_collection_now,
+    queue_auto_collection_now,
     update_auto_collection_setting,
 )
+from .services.collection_queue_service import enqueue_collection_job
 from .services.forecast_service import generate_forecast_for_city
 from .services.import_service import import_air_quality_dataset
 from .services.repository import (
@@ -28,7 +29,7 @@ from .services.repository import (
     list_cities,
     list_years,
 )
-from .services.task_progress_service import append_task_log, create_task, get_task, run_task_in_background, update_task
+from .services.task_progress_service import append_task_log, create_task, get_task, update_task
 
 
 pages = Blueprint("pages", __name__)
@@ -163,9 +164,14 @@ def update_collector_auto_settings():
 
 @api.route("/collector/auto-settings/run-now", methods=["POST"])
 def run_collector_auto_settings_now():
-    result = run_auto_collection_now()
-    status_code = 200 if result.get("status") == "success" else 400
-    return jsonify(result), status_code
+    result = queue_auto_collection_now(current_app._get_current_object())
+    return jsonify(
+        {
+            "status": "queued",
+            "message": "Auto realtime collection has been queued.",
+            **result,
+        }
+    ), 202
 
 
 @api.route("/collector/realtime/start", methods=["POST"])
@@ -189,7 +195,13 @@ def start_realtime_collector():
         finish_auto_collection_run(result)
         return result
 
-    run_task_in_background(app, task_id, worker)
+    enqueue_collection_job(
+        app=app,
+        task_id=task_id,
+        worker=worker,
+        queue_key=f"manual_realtime_collection:{task_id}",
+        queued_message="Realtime collection has been added to the single collection queue.",
+    )
     task = get_task(task_id)
     return jsonify(task), 202
 
@@ -288,7 +300,13 @@ def start_history_collector():
 
         return collector.run_with_progress(progress_callback=progress_callback)
 
-    run_task_in_background(app, task_id, worker)
+    enqueue_collection_job(
+        app=app,
+        task_id=task_id,
+        worker=worker,
+        queue_key=f"history_collection:{task_id}",
+        queued_message="History collection has been added to the single collection queue.",
+    )
     task = get_task(task_id)
     return jsonify(task), 202
 
