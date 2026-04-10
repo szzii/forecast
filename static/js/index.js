@@ -75,9 +75,24 @@ async function loadOverviewPage() {
         const rankChart = AppUtils.mountChart("overviewRankChart");
         rankChart.setOption({
             tooltip: { trigger: "axis" },
-            grid: { left: 72, right: 24, top: 24, bottom: 24 },
+            grid: { left: 72, right: 40, top: 24, bottom: 24 },
             xAxis: { type: "value" },
             yAxis: { type: "category", data: ranking.map((item) => item.city) },
+            dataZoom: ranking.length > 1 ? [{
+                type: "slider",
+                yAxisIndex: 0,
+                orient: "vertical",
+                right: 4,
+                start: 0,
+                end: 100,
+                width: 16,
+                filterMode: "filter",
+            }, {
+                type: "inside",
+                yAxisIndex: 0,
+                orient: "vertical",
+                filterMode: "filter",
+            }] : [],
             graphic: trend.ranking.length ? [] : [{
                 type: "text",
                 left: "center",
@@ -96,7 +111,10 @@ async function loadOverviewPage() {
 
         const pieChart = AppUtils.mountChart("overviewQualityPie");
         pieChart.setOption({
-            tooltip: { trigger: "item" },
+            tooltip: {
+                trigger: "item",
+                formatter: (params) => `${params.name}<br/>记录条数：${params.value} 条<br/>占比：${params.percent}%`,
+            },
             legend: { bottom: 0 },
             graphic: trend.distribution.length ? [] : [{
                 type: "text",
@@ -113,7 +131,7 @@ async function loadOverviewPage() {
                     name: item.name,
                     itemStyle: { color: item.color },
                 })),
-                label: { formatter: "{b}\n{d}%" },
+                label: { formatter: "{b}\n{c} 条\n{d}%" },
             }],
         });
     }

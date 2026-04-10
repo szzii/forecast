@@ -24,7 +24,7 @@ class AirQualityRecord(db.Model):
     wind_speed = db.Column(db.Float, nullable=False)
     pressure = db.Column(db.Float, nullable=False)
     source_name = db.Column(db.String(60), default="system-seed")
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
 
 
 class PredictionRecord(db.Model):
@@ -40,7 +40,11 @@ class PredictionRecord(db.Model):
     ensemble_aqi = db.Column(db.Float, nullable=False)
     pm25_pred = db.Column(db.Float, nullable=False)
     pm10_pred = db.Column(db.Float, nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    so2_pred = db.Column(db.Float, nullable=True)
+    no2_pred = db.Column(db.Float, nullable=True)
+    co_pred = db.Column(db.Float, nullable=True)
+    o3_pred = db.Column(db.Float, nullable=True)
+    created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
 
 
 class ModelMetric(db.Model):
@@ -67,7 +71,7 @@ class ForecastValidationRecord(db.Model):
     xgboost_aqi = db.Column(db.Float, nullable=False)
     ensemble_aqi = db.Column(db.Float, nullable=False)
     error_value = db.Column(db.Float, nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
 
 
 class CrawlTaskLog(db.Model):
@@ -108,7 +112,7 @@ class DataImportLog(db.Model):
     inserted_rows = db.Column(db.Integer, default=0, nullable=False)
     updated_rows = db.Column(db.Integer, default=0, nullable=False)
     message = db.Column(db.String(255), default="", nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False, index=True)
+    created_at = db.Column(db.DateTime, default=datetime.now, nullable=False, index=True)
 
 
 class AutoCollectionSetting(db.Model):
@@ -121,4 +125,4 @@ class AutoCollectionSetting(db.Model):
     last_run_at = db.Column(db.DateTime, nullable=True)
     last_status = db.Column(db.String(20), nullable=False, default="idle")
     last_message = db.Column(db.String(255), nullable=False, default="")
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = db.Column(db.DateTime, default=datetime.now, nullable=False)

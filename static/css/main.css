@@ -367,8 +367,8 @@ th {
 
 .history-form {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
     align-items: end;
 }
 
@@ -609,10 +609,9 @@ th {
 
 .collect-workspace-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 22px;
-    align-items: start;
-    margin-top: 22px;
+    align-items: stretch;
 }
 
 .auto-collector-panel {
@@ -623,59 +622,40 @@ th {
 }
 
 .auto-collector-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 18px;
-    margin-bottom: 16px;
-}
-
-.auto-collector-head p {
-    margin: 0;
-    max-width: 620px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.75;
+    margin-bottom: 14px;
 }
 
 .auto-collector-form {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    align-items: stretch;
-    padding: 16px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.78);
-    border: 1px solid rgba(39, 132, 232, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
 }
 
 .auto-collector-form label {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     font-size: 13px;
     color: var(--muted);
 }
 
 .auto-field {
-    justify-content: flex-end;
-    min-height: 116px;
+    flex: 1 1 120px;
+    min-width: 100px;
+    max-width: 180px;
 }
 
 .auto-field > span {
     font-weight: 600;
     color: var(--text);
-}
-
-.auto-field small {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.5;
+    white-space: nowrap;
 }
 
 .auto-collector-form input[type="number"] {
-    padding: 10px 14px;
-    border-radius: 12px;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 10px;
     border: 1px solid var(--line);
     background: #f7fbff;
     color: var(--text);
@@ -683,9 +663,9 @@ th {
 }
 
 .auto-actions {
-    grid-column: 1 / -1;
+    flex: 0 0 auto;
     justify-content: flex-start;
-    padding-top: 2px;
+    padding-top: 0;
 }
 
 .auto-actions .btn-primary,
@@ -708,14 +688,11 @@ th {
 }
 
 .auto-actions .btn-primary {
-    min-width: 120px;
-    height: 46px;
-    box-shadow: 0 12px 24px rgba(39, 132, 232, 0.18);
+    min-width: 80px;
 }
 
 .auto-actions .btn-secondary {
-    min-width: 184px;
-    height: 46px;
+    min-width: 100px;
 }
 
 .collect-history-panel {
@@ -957,20 +934,23 @@ th {
 
     .metric-grid,
     .metric-grid-3,
-    .chart-grid-2,
-    .auto-collector-form {
+    .chart-grid-2 {
         grid-template-columns: 1fr;
     }
 
     .upload-form,
     .form-grid-4,
-    .history-form,
-    .auto-collector-form {
+    .history-form {
         grid-template-columns: 1fr;
     }
 
     .collect-workspace-grid {
+        grid-template-columns: 1fr;
         gap: 18px;
+    }
+
+    .auto-field {
+        max-width: none;
     }
 
     .auto-switch {

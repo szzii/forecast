@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% set page_name = "trend" %}
 
-{% block title %}趋势分析 | 空气质量预测系统{% endblock %}
+{% block title %}历史趋势分析 | 空气质量预测系统{% endblock %}
 
 {% block content %}
 <section class="panel">
     <div class="panel-header">
         <div>
-            <h2>空气质量趋势分析</h2>
-            <p>查看年度趋势、污染物变化和城市空气质量分布。</p>
+            <h2>历史趋势分析</h2>
+            <p>查看年度 AQI 趋势、污染物变化和城市空气质量分布。</p>
         </div>
         <div class="toolbar">
             <label>
@@ -24,20 +24,12 @@
 
 <section class="chart-grid chart-grid-2">
     <div class="panel chart-panel">
-        <div class="panel-title">AQI Max / Min 趋势</div>
+        <div class="panel-title">AQI 最大值 / 最小值趋势</div>
         <div id="trendAnnualChart" class="chart-box"></div>
     </div>
     <div class="panel chart-panel">
-        <div class="panel-title">污染物月均值对比</div>
-        <div id="trendPollutantChart" class="chart-box"></div>
-    </div>
-    <div class="panel chart-panel">
-        <div class="panel-title">城市实时 AQI 排名</div>
-        <div id="trendRankingChart" class="chart-box"></div>
-    </div>
-    <div class="panel chart-panel">
-        <div class="panel-title">空气质量等级分布</div>
-        <div id="trendDistributionChart" class="chart-box"></div>
+        <div class="panel-title">污染物月均值趋势</div>
+        <div id="trendPrimaryPollutantChart" class="chart-box"></div>
     </div>
 </section>
 {% endblock %}

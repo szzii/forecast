@@ -12,6 +12,13 @@ class Config:
         f"sqlite:///{BASE_DIR / 'air_quality_demo.db'}",
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    if SQLALCHEMY_DATABASE_URI.startswith("sqlite"):
+        SQLALCHEMY_ENGINE_OPTIONS = {
+            "connect_args": {
+                "timeout": 30,
+            },
+            "pool_pre_ping": True,
+        }
     JSON_AS_ASCII = False
     CRAWLER_TIMEOUT = int(os.getenv("CRAWLER_TIMEOUT", "15"))
     LIVE_COLLECTION_HOURS = int(os.getenv("LIVE_COLLECTION_HOURS", "24"))

@@ -8,15 +8,15 @@
     <div class="panel-header">
         <div>
             <h2>空气质量预测</h2>
-            <p class="forecast-intro">查看未来 24 小时空气质量预测结果和模型表现。</p>
+            <p class="forecast-intro">查看未来 24 小时空气质量预报及评估数据。</p>
         </div>
         <div class="toolbar">
-            <button id="forecastGenerateButton" class="btn-primary">生成/刷新预测</button>
+            <button id="forecastGenerateButton" class="btn-primary">生成 / 刷新预测</button>
         </div>
     </div>
 
     <div id="forecastSummaryCards" class="metric-grid metric-grid-3"></div>
-    <div id="forecastGenerateMessage" class="inline-message">当前预测基于现有数据生成。</div>
+    <div id="forecastGenerateMessage" class="inline-message"></div>
 </section>
 
 <section class="chart-grid chart-grid-2 forecast-top-grid">
@@ -25,16 +25,13 @@
         <div id="forecastHourChart" class="chart-box forecast-top-chart"></div>
     </div>
     <div class="panel chart-panel forecast-top-panel">
-        <div class="panel-title">未来 24 小时 PM2.5 / PM10 预测</div>
-        <div id="forecastPmChart" class="chart-box forecast-top-chart"></div>
+        <div class="panel-title">未来 24 小时污染物预测</div>
+        <div id="forecastPrimaryPollutantChart" class="chart-box forecast-top-chart"></div>
     </div>
 </section>
 
-<section class="chart-grid chart-grid-2 forecast-bottom-grid">
-    <div class="panel chart-panel forecast-bottom-panel">
-        <div class="panel-title">模型评估对比</div>
-        <div id="forecastModelChart" class="chart-box"></div>
-    </div>
+
+<section class="chart-grid chart-grid-1 forecast-bottom-grid" style="display:none;">
     <div class="panel chart-panel forecast-bottom-panel">
         <div class="panel-title">真实值与预测值验证</div>
         <div id="forecastValidationChart" class="chart-box"></div>

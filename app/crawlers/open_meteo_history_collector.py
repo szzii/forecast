@@ -49,12 +49,12 @@ class OpenMeteoHistoryCollector:
         run_at = datetime.now()
         try:
             if progress_callback:
-                progress_callback(3, "正在加载城市主数据并解析可用坐标...")
+                progress_callback(3, "正在加载城市主数据...")
             cities, unresolved_cities = get_resolved_city_master(
                 scope=self.scope,
                 province=self.province,
                 cities=self.cities,
-                resolve_missing=True,
+                resolve_missing=False,
             )
             if not cities:
                 raise ValueError("当前范围内没有可用城市坐标，请先生成城市主数据。")

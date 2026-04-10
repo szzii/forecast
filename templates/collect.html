@@ -4,44 +4,29 @@
 {% block title %}数据采集 | 空气质量预测系统{% endblock %}
 
 {% block content %}
-<section class="panel collect-hero-panel">
-    <div class="collect-hero-copy">
-        <h2>数据采集管理</h2>
-        <p>管理实时采集、定时采集和历史数据采集。</p>
-    </div>
-
-    <div id="collectSummaryCards" class="metric-grid metric-grid-3 collect-summary-grid"></div>
-    <div id="collectorMetaMessage" class="inline-message">正在加载全国城市主数据...</div>
-</section>
-
 <section class="collect-workspace-grid">
     <section class="panel auto-collector-panel">
-        <div class="auto-collector-head">
-            <div class="panel-title">自动采集定时任务设置</div>
-            <p>设置自动采集间隔，也可以手动执行一次实时采集。</p>
-        </div>
+        <div class="panel-title" style="margin-bottom:14px;">采集设置</div>
         <form id="autoCollectorForm" class="auto-collector-form">
             <label class="auto-field">
                 <span>采集间隔（秒）</span>
                 <input id="autoCollectorInterval" name="interval_seconds" type="number" min="60" step="60">
-                <small>默认 1800 秒</small>
             </label>
             <label class="auto-field">
-                <span>单次回补时长（小时）</span>
+                <span>采集小时数</span>
                 <input id="autoCollectorHours" name="collection_hours" type="number" min="1" step="1">
-                <small>每次采集回补的时间范围</small>
             </label>
             <div class="upload-actions auto-actions">
-                <button type="submit" class="btn-primary">保存设置</button>
-                <button id="runAutoCollectorNowButton" type="button" class="btn-secondary">立即采集真实小时数据</button>
+                <button type="submit" class="btn-primary">保存</button>
+                <button id="runAutoCollectorNowButton" type="button" class="btn-secondary">立即采集</button>
             </div>
         </form>
-        <div id="autoCollectorLastRun" class="auto-last-run">上次执行时间：--</div>
+        <div id="autoCollectorLastRun" class="auto-last-run">上次执行：-</div>
         <div id="autoCollectorMessage" class="inline-message status-message-hidden"></div>
         <div id="autoTaskStatusCard" class="history-task-card auto-task-card">
             <div class="history-task-top">
                 <div>
-                    <div class="panel-title">实时采集进度</div>
+                    <div class="panel-title">实时任务进度</div>
                     <div id="autoTaskStatusText" class="history-task-status">当前没有实时采集任务</div>
                 </div>
                 <div id="autoTaskPercent" class="history-task-percent">0%</div>
@@ -49,24 +34,20 @@
             <div class="history-progress-bar">
                 <div id="autoTaskProgressBar" class="history-progress-fill"></div>
             </div>
-            <div id="autoTaskMeta" class="history-task-meta">这里显示实时采集状态和日志。</div>
+            <div id="autoTaskMeta" class="history-task-meta"></div>
             <div id="autoTaskLogList" class="history-task-log-list"></div>
         </div>
     </section>
 
     <section class="panel collect-history-panel">
-        <div class="collect-subhead">
-            <div class="panel-title">历史范围采集</div>
-            <p>按时间范围采集历史数据，可选择全部城市、指定省份或当前城市。</p>
-        </div>
+        <div class="panel-title" style="margin-bottom:14px;">历史采集</div>
         <div class="history-config-card">
             <div class="range-shortcuts">
-                <button type="button" class="btn-secondary range-shortcut" data-days="7">近 7 天</button>
                 <button type="button" class="btn-secondary range-shortcut" data-days="30">近 30 天</button>
                 <button type="button" class="btn-secondary range-shortcut" data-days="90">近 90 天</button>
-                <button type="button" class="btn-secondary range-shortcut" data-days="180">近半年</button>
-                <button type="button" class="btn-secondary range-shortcut" data-days="365">近一年</button>
-                <span id="historyRangeHint" class="range-hint">当前采集区间：7 天</span>
+                <button type="button" class="btn-secondary range-shortcut" data-days="365">近 365 天</button>
+                <button type="button" class="btn-secondary range-shortcut" data-days="year">今年</button>
+                <span id="historyRangeHint" class="range-hint">当前范围：0 天</span>
             </div>
             <form id="historyCollectorForm" class="history-form">
                 <label>
@@ -86,10 +67,10 @@
                     </select>
                 </label>
                 <label>
-                    指定省份
+                    省份
                     <select id="historyProvinceSelect" name="province" disabled></select>
                 </label>
-                <div class="upload-actions">
+                <div class="upload-actions" style="grid-column: 1 / -1;">
                     <button id="historyCollectSubmitButton" type="submit" class="btn-primary">采集历史数据</button>
                 </div>
             </form>
@@ -98,7 +79,7 @@
         <div id="historyTaskStatusCard" class="history-task-card">
             <div class="history-task-top">
                 <div>
-                    <div class="panel-title">历史采集执行进度</div>
+                    <div class="panel-title">历史任务进度</div>
                     <div id="historyTaskStatusText" class="history-task-status">当前没有历史采集任务</div>
                 </div>
                 <div id="historyTaskPercent" class="history-task-percent">0%</div>
@@ -106,15 +87,15 @@
             <div class="history-progress-bar">
                 <div id="historyTaskProgressBar" class="history-progress-fill"></div>
             </div>
-            <div id="historyTaskMeta" class="history-task-meta">这里显示历史采集状态和日志。</div>
+            <div id="historyTaskMeta" class="history-task-meta"></div>
             <div id="historyTaskLogList" class="history-task-log-list"></div>
         </div>
     </section>
 </section>
 
-<section class="panel table-panel">
+<section class="panel table-panel" style="margin-top: 22px;">
     <div class="collect-subhead collect-log-head">
-        <div class="panel-title">采集任务日志</div>
+        <div class="panel-title">采集日志</div>
         <p>查看各类采集任务的执行记录。</p>
     </div>
     <div class="table-wrap">

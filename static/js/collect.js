@@ -6,6 +6,7 @@ const collectState = {
     activeRealtimeTaskId: "",
     realtimePollTimer: null,
 };
+
 const historyTaskStorageKey = "aq_history_task_id";
 const realtimeTaskStorageKey = "aq_realtime_task_id";
 
@@ -19,6 +20,15 @@ function formatAutoStatus(status) {
     return mapping[status] || status || "--";
 }
 
+function showStatusMessage(elementId, text) {
+    const element = document.getElementById(elementId);
+    if (!element) {
+        return;
+    }
+    element.textContent = text || "";
+    element.classList.toggle("status-message-hidden", !text);
+}
+
 function renderAutoCollectorSummary(payload) {
     const lastRunNode = document.getElementById("autoCollectorLastRun");
     if (!lastRunNode) {
@@ -26,8 +36,8 @@ function renderAutoCollectorSummary(payload) {
     }
     const statusText = formatAutoStatus(payload.last_status);
     const lastRunAt = payload.last_run_at || "--";
-    const lastMessage = payload.last_message ? `；最近状态：${statusText}` : "";
-    lastRunNode.textContent = `上次执行时间：${lastRunAt}${lastMessage}`;
+    const lastStatus = payload.last_message ? `；最近状态：${statusText}` : "";
+    lastRunNode.textContent = `上次执行：${lastRunAt}${lastStatus}`;
 }
 
 async function loadAutoCollectorSettings() {
@@ -43,15 +53,6 @@ async function loadAutoCollectorSettings() {
     renderAutoCollectorSummary(payload);
 }
 
-function showStatusMessage(elementId, text) {
-    const element = document.getElementById(elementId);
-    if (!element) {
-        return;
-    }
-    element.textContent = text || "";
-    element.classList.toggle("status-message-hidden", !text);
-}
-
 function saveRealtimeTaskId(taskId) {
     try {
         if (taskId) {
@@ -60,7 +61,7 @@ function saveRealtimeTaskId(taskId) {
             window.localStorage.removeItem(realtimeTaskStorageKey);
         }
     } catch (error) {
-        console.warn("保存实时采集任务状态失败", error);
+        console.warn("保存实时任务 ID 失败", error);
     }
 }
 
@@ -80,7 +81,7 @@ function saveHistoryTaskId(taskId) {
             window.localStorage.removeItem(historyTaskStorageKey);
         }
     } catch (error) {
-        console.warn("保存历史采集任务状态失败", error);
+        console.warn("保存历史任务 ID 失败", error);
     }
 }
 
@@ -98,7 +99,7 @@ function setHistorySubmitButtonState(isRunning) {
         return;
     }
     button.disabled = isRunning;
-    button.textContent = isRunning ? "历史采集中..." : "采集历史数据";
+    button.textContent = isRunning ? "采集中..." : "采集历史数据";
 }
 
 function setRealtimeSubmitButtonState(isRunning) {
@@ -110,74 +111,67 @@ function setRealtimeSubmitButtonState(isRunning) {
     button.textContent = isRunning ? "采集中..." : "立即采集真实小时数据";
 }
 
-function renderHistoryTask(task) {
-    const statusText = document.getElementById("historyTaskStatusText");
-    const percentText = document.getElementById("historyTaskPercent");
-    const progressBar = document.getElementById("historyTaskProgressBar");
-    const taskMeta = document.getElementById("historyTaskMeta");
-    const taskLogList = document.getElementById("historyTaskLogList");
+function renderTaskCommon(task, elements, emptyText) {
+    const { statusText, percentText, progressBar, taskMeta, taskLogList, updateButtonState } = elements;
 
     if (!task) {
-        statusText.textContent = "当前没有历史采集任务";
+        statusText.textContent = emptyText;
         percentText.textContent = "0%";
         progressBar.style.width = "0%";
-        taskMeta.textContent = "这里显示历史采集状态和日志。";
+        taskMeta.textContent = "这里显示任务状态和日志。";
         taskLogList.innerHTML = "";
-        setHistorySubmitButtonState(false);
+        updateButtonState(false);
         return;
     }
 
-    statusText.textContent = `${task.status_label || task.status}：${task.message || "任务正在准备中..."}`;
+    statusText.textContent = `${task.status_label || task.status}：${task.message || "任务开始执行中..."}`;
     percentText.textContent = `${task.progress || 0}%`;
     progressBar.style.width = `${task.progress || 0}%`;
-    taskMeta.textContent = `任务开始时间：${task.started_at || "--"}${task.finished_at ? `；结束时间：${task.finished_at}` : ""}`;
+    taskMeta.textContent = `开始时间：${task.started_at || "--"}${task.finished_at ? `；结束时间：${task.finished_at}` : ""}`;
     taskLogList.innerHTML = (task.logs || [])
         .slice()
         .reverse()
-        .map((item) => `
-            <div class="history-task-log-item history-task-log-${item.level || "info"}">
-                <span class="history-task-log-time">${item.time}</span>
-                <span class="history-task-log-message">${item.message}</span>
-            </div>
-        `)
+        .map(
+            (item) => `
+                <div class="history-task-log-item history-task-log-${item.level || "info"}">
+                    <span class="history-task-log-time">${item.time}</span>
+                    <span class="history-task-log-message">${item.message}</span>
+                </div>
+            `
+        )
         .join("");
 
-    setHistorySubmitButtonState(task.status === "running" || task.status === "pending");
+    updateButtonState(task.status === "running" || task.status === "pending");
+}
+
+function renderHistoryTask(task) {
+    renderTaskCommon(
+        task,
+        {
+            statusText: document.getElementById("historyTaskStatusText"),
+            percentText: document.getElementById("historyTaskPercent"),
+            progressBar: document.getElementById("historyTaskProgressBar"),
+            taskMeta: document.getElementById("historyTaskMeta"),
+            taskLogList: document.getElementById("historyTaskLogList"),
+            updateButtonState: setHistorySubmitButtonState,
+        },
+        "当前没有历史采集任务"
+    );
 }
 
 function renderRealtimeTask(task) {
-    const statusText = document.getElementById("autoTaskStatusText");
-    const percentText = document.getElementById("autoTaskPercent");
-    const progressBar = document.getElementById("autoTaskProgressBar");
-    const taskMeta = document.getElementById("autoTaskMeta");
-    const taskLogList = document.getElementById("autoTaskLogList");
-
-    if (!task) {
-        statusText.textContent = "当前没有实时采集任务";
-        percentText.textContent = "0%";
-        progressBar.style.width = "0%";
-        taskMeta.textContent = "这里显示实时采集状态和日志。";
-        taskLogList.innerHTML = "";
-        setRealtimeSubmitButtonState(false);
-        return;
-    }
-
-    statusText.textContent = `${task.status_label || task.status}：${task.message || "任务正在准备中..."}`;
-    percentText.textContent = `${task.progress || 0}%`;
-    progressBar.style.width = `${task.progress || 0}%`;
-    taskMeta.textContent = `任务开始时间：${task.started_at || "--"}${task.finished_at ? `；结束时间：${task.finished_at}` : ""}`;
-    taskLogList.innerHTML = (task.logs || [])
-        .slice()
-        .reverse()
-        .map((item) => `
-            <div class="history-task-log-item history-task-log-${item.level || "info"}">
-                <span class="history-task-log-time">${item.time}</span>
-                <span class="history-task-log-message">${item.message}</span>
-            </div>
-        `)
-        .join("");
-
-    setRealtimeSubmitButtonState(task.status === "running" || task.status === "pending");
+    renderTaskCommon(
+        task,
+        {
+            statusText: document.getElementById("autoTaskStatusText"),
+            percentText: document.getElementById("autoTaskPercent"),
+            progressBar: document.getElementById("autoTaskProgressBar"),
+            taskMeta: document.getElementById("autoTaskMeta"),
+            taskLogList: document.getElementById("autoTaskLogList"),
+            updateButtonState: setRealtimeSubmitButtonState,
+        },
+        "当前没有实时采集任务"
+    );
 }
 
 async function pollHistoryTask(taskId) {
@@ -199,11 +193,22 @@ async function pollHistoryTask(taskId) {
             pollHistoryTask(taskId);
         }, 1200);
     } catch (error) {
+        if (String(error.message || "").includes("404")) {
+            collectState.activeHistoryTaskId = "";
+            saveHistoryTaskId("");
+            renderHistoryTask(null);
+            showStatusMessage("historyCollectorMessage", "服务重启后，之前的历史任务记录已失效。");
+            if (collectState.historyPollTimer) {
+                window.clearTimeout(collectState.historyPollTimer);
+                collectState.historyPollTimer = null;
+            }
+            return;
+        }
         renderHistoryTask({
             status: "failed",
             status_label: "失败",
             progress: 0,
-            message: `任务状态获取失败：${error.message}`,
+            message: `获取任务状态失败：${error.message}`,
             logs: [],
         });
         collectState.activeHistoryTaskId = "";
@@ -234,11 +239,22 @@ async function pollRealtimeTask(taskId) {
             pollRealtimeTask(taskId);
         }, 1200);
     } catch (error) {
+        if (String(error.message || "").includes("404")) {
+            collectState.activeRealtimeTaskId = "";
+            saveRealtimeTaskId("");
+            renderRealtimeTask(null);
+            showStatusMessage("autoCollectorMessage", "服务重启后，之前的实时任务记录已失效。");
+            if (collectState.realtimePollTimer) {
+                window.clearTimeout(collectState.realtimePollTimer);
+                collectState.realtimePollTimer = null;
+            }
+            return;
+        }
         renderRealtimeTask({
             status: "failed",
             status_label: "失败",
             progress: 0,
-            message: `任务状态获取失败：${error.message}`,
+            message: `获取任务状态失败：${error.message}`,
             logs: [],
         });
         collectState.activeRealtimeTaskId = "";
@@ -273,7 +289,7 @@ async function loadCrawlerStatus(page = collectState.taskPage) {
 
     const { page: currentPage, total_pages: totalPages, total } = payload.pagination;
     paginationBar.innerHTML = `
-        <div class="pagination-summary">第 ${currentPage} / ${totalPages} 页，共 ${total} 条任务日志</div>
+        <div class="pagination-summary">第 ${currentPage} / ${totalPages} 页，共 ${total} 条日志</div>
         <div class="pagination-actions">
             <button type="button" class="btn-secondary pagination-button" data-page="${Math.max(currentPage - 1, 1)}" ${currentPage <= 1 ? "disabled" : ""}>上一页</button>
             <button type="button" class="btn-secondary pagination-button" data-page="${Math.min(currentPage + 1, totalPages)}" ${currentPage >= totalPages ? "disabled" : ""}>下一页</button>
@@ -289,57 +305,61 @@ async function loadCrawlerStatus(page = collectState.taskPage) {
 
 async function loadCollectorMetadata() {
     const collectorMeta = await AppUtils.fetchJSON("/api/collector/metadata");
-    const currentCity = AppUtils.getCurrentCity();
     AppUtils.fillSelect("historyProvinceSelect", collectorMeta.provinces, collectorMeta.provinces[0] || "");
-    AppUtils.renderMetricCards("collectSummaryCards", [
-        { label: "全国城市总数", value: collectorMeta.total_cities, extra: "全国城市主数据规模" },
-        { label: "已解析坐标", value: collectorMeta.resolved_cities, extra: "可直接参与实时/历史采集" },
-        { label: "当前采集城市", value: currentCity || "--", extra: `待补全 ${collectorMeta.unresolved_cities} 个城市坐标` },
-    ]);
+}
 
-    const collectorMetaMessage = document.getElementById("collectorMetaMessage");
-    collectorMetaMessage.textContent = `全国城市主数据共 ${collectorMeta.total_cities} 个城市，已完成 ${collectorMeta.resolved_cities} 个城市坐标解析，待补全 ${collectorMeta.unresolved_cities} 个。`;
+function toDateInputValue(date) {
+    const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+    return localDate.toISOString().slice(0, 10);
 }
 
 async function loadCollectPage() {
-    const cityPayload = await AppUtils.getCitiesPayload();
-    if (!cityPayload.cities.length) {
-        return;
-    }
+    await AppUtils.getCitiesPayload();
 
     const historyScopeSelect = document.getElementById("historyScopeSelect");
     const historyProvinceSelect = document.getElementById("historyProvinceSelect");
     const historyStartDate = document.getElementById("historyStartDate");
     const historyEndDate = document.getElementById("historyEndDate");
     const historyRangeHint = document.getElementById("historyRangeHint");
+
     renderHistoryTask(null);
     renderRealtimeTask(null);
 
     function updateHistoryRangeHint() {
         if (!historyStartDate.value || !historyEndDate.value) {
-            historyRangeHint.textContent = "请选择完整的开始日期和结束日期";
+            historyRangeHint.textContent = "请选择开始日期和结束日期";
             return;
         }
-        const startDateValue = new Date(historyStartDate.value);
-        const endDateValue = new Date(historyEndDate.value);
+        const startDateValue = new Date(`${historyStartDate.value}T00:00:00`);
+        const endDateValue = new Date(`${historyEndDate.value}T00:00:00`);
         const diff = Math.floor((endDateValue - startDateValue) / (24 * 60 * 60 * 1000)) + 1;
-        historyRangeHint.textContent = `当前采集区间：${diff > 0 ? diff : 0} 天`;
+        historyRangeHint.textContent = `当前范围：${diff > 0 ? diff : 0} 天`;
+    }
+
+    function normalizeHistoryDates() {
+        if (historyStartDate.value && historyEndDate.value && historyStartDate.value > historyEndDate.value) {
+            historyEndDate.value = historyStartDate.value;
+        }
+        updateHistoryRangeHint();
     }
 
     function applyQuickRange(days) {
         const endDate = new Date();
         const startDateValue = new Date(endDate);
         startDateValue.setDate(startDateValue.getDate() - (days - 1));
-        historyStartDate.value = startDateValue.toISOString().slice(0, 10);
-        historyEndDate.value = endDate.toISOString().slice(0, 10);
+        historyStartDate.value = toDateInputValue(startDateValue);
+        historyEndDate.value = toDateInputValue(endDate);
         updateHistoryRangeHint();
     }
 
     const now = new Date();
-    const endDateText = now.toISOString().slice(0, 10);
+    const endDateText = toDateInputValue(now);
     const startDate = new Date(now);
     startDate.setDate(startDate.getDate() - 6);
-    const startDateText = startDate.toISOString().slice(0, 10);
+    const startDateText = toDateInputValue(startDate);
+
+    historyStartDate.max = endDateText;
+    historyEndDate.max = endDateText;
     historyStartDate.value = startDateText;
     historyEndDate.value = endDateText;
     updateHistoryRangeHint();
@@ -347,12 +367,24 @@ async function loadCollectPage() {
     historyScopeSelect.addEventListener("change", () => {
         historyProvinceSelect.disabled = historyScopeSelect.value !== "province";
     });
-    historyStartDate.addEventListener("change", updateHistoryRangeHint);
-    historyEndDate.addEventListener("change", updateHistoryRangeHint);
+    historyStartDate.addEventListener("change", normalizeHistoryDates);
+    historyEndDate.addEventListener("change", () => {
+        if (historyStartDate.value && historyEndDate.value < historyStartDate.value) {
+            historyStartDate.value = historyEndDate.value;
+        }
+        updateHistoryRangeHint();
+    });
 
     document.querySelectorAll(".range-shortcut").forEach((button) => {
         button.addEventListener("click", () => {
-            applyQuickRange(Number(button.dataset.days));
+            if (button.dataset.days === "year") {
+                const now = new Date();
+                historyStartDate.value = `${now.getFullYear()}-01-01`;
+                historyEndDate.value = toDateInputValue(now);
+                updateHistoryRangeHint();
+            } else {
+                applyQuickRange(Number(button.dataset.days));
+            }
         });
     });
 
@@ -366,11 +398,11 @@ async function loadCollectPage() {
             return;
         }
         if (collectionHours < 1) {
-            showStatusMessage("autoCollectorMessage", "单次回补时长不能小于 1 小时。");
+            showStatusMessage("autoCollectorMessage", "采集小时数不能小于 1。");
             return;
         }
 
-        showStatusMessage("autoCollectorMessage", "正在保存自动采集定时任务设置，请稍候...");
+        showStatusMessage("autoCollectorMessage", "正在保存自动采集设置...");
         try {
             const result = await AppUtils.fetchJSON("/api/collector/auto-settings", {
                 method: "POST",
@@ -384,7 +416,7 @@ async function loadCollectPage() {
             renderAutoCollectorSummary(result);
             showStatusMessage(
                 "autoCollectorMessage",
-                `保存成功：自动采集已启用，采集间隔 ${result.interval_seconds} 秒，单次回补 ${result.collection_hours} 小时。`
+                `保存成功：采集间隔 ${result.interval_seconds} 秒，采集小时数 ${result.collection_hours} 小时。`
             );
         } catch (error) {
             showStatusMessage("autoCollectorMessage", `保存失败：${error.message}`);
@@ -392,13 +424,13 @@ async function loadCollectPage() {
     });
 
     document.getElementById("runAutoCollectorNowButton").addEventListener("click", async () => {
-        showStatusMessage("autoCollectorMessage", "正在立即执行一次真实小时数据采集，请稍候...");
+        showStatusMessage("autoCollectorMessage", "正在启动实时采集任务...");
         setRealtimeSubmitButtonState(true);
         try {
             const response = await fetch("/api/collector/realtime/start", { method: "POST" });
             const result = await response.json();
             if (!response.ok) {
-                throw new Error(result.message || `请求失败: ${response.status}`);
+                throw new Error(result.message || `Request failed: ${response.status}`);
             }
             collectState.activeRealtimeTaskId = result.task_id;
             saveRealtimeTaskId(result.task_id);
@@ -409,14 +441,13 @@ async function loadCollectPage() {
             }
             pollRealtimeTask(result.task_id);
         } catch (error) {
-            showStatusMessage("autoCollectorMessage", `立即采集失败：${error.message}`);
+            showStatusMessage("autoCollectorMessage", `实时采集失败：${error.message}`);
             setRealtimeSubmitButtonState(false);
         }
     });
 
     document.getElementById("historyCollectorForm").addEventListener("submit", async (event) => {
         event.preventDefault();
-        const message = document.getElementById("historyCollectorMessage");
         const scope = historyScopeSelect.value;
         const startDateValue = historyStartDate.value;
         const endDateValue = historyEndDate.value;
@@ -434,10 +465,16 @@ async function loadCollectPage() {
             payload.province = historyProvinceSelect.value;
         }
         if (scope === "city") {
-            payload.cities = [AppUtils.getCurrentCity()];
+            const currentCity = AppUtils.getCurrentCity();
+            if (!currentCity) {
+                showStatusMessage("historyCollectorMessage", "当前还没有可用城市，请先导入或采集数据，或改用全部城市/指定省份。");
+                setHistorySubmitButtonState(false);
+                return;
+            }
+            payload.cities = [currentCity];
         }
 
-        showStatusMessage("historyCollectorMessage", "正在创建历史采集任务，请稍候...");
+        showStatusMessage("historyCollectorMessage", "正在启动历史采集任务...");
         setHistorySubmitButtonState(true);
         try {
             const response = await fetch("/api/collector/history/start", {
@@ -447,7 +484,7 @@ async function loadCollectPage() {
             });
             const result = await response.json();
             if (!response.ok) {
-                throw new Error(result.message || `请求失败: ${response.status}`);
+                throw new Error(result.message || `Request failed: ${response.status}`);
             }
             collectState.activeHistoryTaskId = result.task_id;
             saveHistoryTaskId(result.task_id);
@@ -472,6 +509,7 @@ async function loadCollectPage() {
         collectState.activeHistoryTaskId = savedTaskId;
         pollHistoryTask(savedTaskId);
     }
+
     const savedRealtimeTaskId = loadSavedRealtimeTaskId();
     if (savedRealtimeTaskId) {
         collectState.activeRealtimeTaskId = savedRealtimeTaskId;

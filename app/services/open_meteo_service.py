@@ -73,11 +73,18 @@ def _rows_from_payload(city_info: dict, air_payload: dict, weather_payload: dict
     air_hourly = air_payload["hourly"]
     weather_hourly = weather_payload["hourly"]
     weather_index = {time: idx for idx, time in enumerate(weather_hourly["time"])}
+    now = datetime.now()
 
     rows = []
     for idx, record_time in enumerate(air_hourly["time"]):
         weather_idx = weather_index.get(record_time)
         if weather_idx is None:
+            continue
+        try:
+            record_dt = datetime.fromisoformat(record_time)
+        except ValueError:
+            record_dt = datetime.strptime(record_time, "%Y-%m-%dT%H:%M")
+        if record_dt > now:
             continue
         co_micrograms = air_hourly["carbon_monoxide"][idx]
         rows.append(

@@ -28,8 +28,8 @@ class OpenMeteoRealtimeCollector:
         run_at = datetime.now()
         try:
             if progress_callback:
-                progress_callback(5, "正在加载城市主数据并解析可用坐标...")
-            cities, unresolved_cities = get_resolved_city_master(resolve_missing=True)
+                progress_callback(5, "正在加载城市主数据...")
+            cities, unresolved_cities = get_resolved_city_master(resolve_missing=False)
             if progress_callback:
                 progress_callback(10, f"已准备 {len(cities)} 个可采集城市，开始分批抓取真实小时数据...")
 

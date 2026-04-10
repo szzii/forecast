@@ -8,6 +8,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from ..config import Config
 from ..extensions import db
 from ..models import AutoCollectionSetting
+from .collection_queue_service import enqueue_collection_job
 
 
 JOB_ID = "auto_realtime_collection"
@@ -28,7 +29,7 @@ def _get_or_create_setting() -> AutoCollectionSetting:
         collection_hours=max(Config.LIVE_COLLECTION_HOURS, 1),
         last_status="idle",
         last_message="自动采集尚未执行。",
-        updated_at=datetime.utcnow(),
+        updated_at=datetime.now(),
     )
     db.session.add(setting)
     db.session.commit()
@@ -41,18 +42,20 @@ def _apply_schedule() -> None:
 
     with _app_ref.app_context():
         setting = _get_or_create_setting()
+        enabled = bool(setting.enabled)
+        interval_seconds = max(int(setting.interval_seconds), 60)
 
     job = _scheduler.get_job(JOB_ID)
     if job:
         _scheduler.remove_job(JOB_ID)
 
-    if not setting.enabled:
+    if not enabled:
         return
 
     _scheduler.add_job(
         func=_run_auto_collection_job,
         trigger="interval",
-        seconds=max(setting.interval_seconds, 60),
+        seconds=interval_seconds,
         id=JOB_ID,
         max_instances=1,
         replace_existing=True,
@@ -75,8 +78,7 @@ def _run_auto_collection_job() -> None:
     if _app_ref is None:
         return
 
-    with _app_ref.app_context():
-        run_auto_collection_now()
+    queue_auto_collection_now(_app_ref, deduplicate=True)
 
 
 def get_auto_collection_payload() -> dict:
@@ -99,7 +101,7 @@ def update_auto_collection_setting(enabled: bool, interval_seconds: int, collect
     setting.enabled = bool(enabled)
     setting.interval_seconds = max(int(interval_seconds), 60)
     setting.collection_hours = max(int(collection_hours), 1)
-    setting.updated_at = datetime.utcnow()
+    setting.updated_at = datetime.now()
     if not setting.last_message:
         setting.last_message = "自动采集设置已更新。"
     db.session.commit()
@@ -109,37 +111,46 @@ def update_auto_collection_setting(enabled: bool, interval_seconds: int, collect
 
 def run_auto_collection_now() -> dict:
     setting = _get_or_create_setting()
-    setting.last_run_at = datetime.utcnow()
+    setting.last_run_at = datetime.now()
     setting.last_status = "running"
     setting.last_message = "自动采集任务执行中..."
-    setting.updated_at = datetime.utcnow()
+    setting.updated_at = datetime.now()
     db.session.commit()
 
     from ..crawlers.open_meteo_collector import OpenMeteoRealtimeCollector
 
     result = OpenMeteoRealtimeCollector(hours=setting.collection_hours).run()
-    setting.last_run_at = datetime.utcnow()
+    setting.last_run_at = datetime.now()
     setting.last_status = result.get("status", "failed")
     setting.last_message = result.get("message", "")[:255]
-    setting.updated_at = datetime.utcnow()
+    setting.updated_at = datetime.now()
     db.session.commit()
     return result
 
 
+def queue_auto_collection_now(app, deduplicate: bool = False) -> dict:
+    return enqueue_collection_job(
+        app=app,
+        worker=run_auto_collection_now,
+        queue_key="auto_realtime_collection",
+        deduplicate=deduplicate,
+    )
+
+
 def begin_auto_collection_run() -> None:
     setting = _get_or_create_setting()
-    setting.last_run_at = datetime.utcnow()
+    setting.last_run_at = datetime.now()
     setting.last_status = "running"
     setting.last_message = "自动采集任务执行中..."
-    setting.updated_at = datetime.utcnow()
+    setting.updated_at = datetime.now()
     db.session.commit()
 
 
 def finish_auto_collection_run(result: dict) -> dict:
     setting = _get_or_create_setting()
-    setting.last_run_at = datetime.utcnow()
+    setting.last_run_at = datetime.now()
     setting.last_status = result.get("status", "failed")
     setting.last_message = result.get("message", "")[:255]
-    setting.updated_at = datetime.utcnow()
+    setting.updated_at = datetime.now()
     db.session.commit()
     return result
