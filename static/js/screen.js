@@ -53,9 +53,26 @@ async function loadScreenPage() {
 
         const ranking = [...payload.ranking].reverse();
         AppUtils.mountChart("screenRankingChart").setOption({
-            grid: { left: 60, right: 18, top: 18, bottom: 18 },
+            grid: { left: 60, right: 32, top: 18, bottom: 18 },
             xAxis: { type: "value", axisLabel: { color: "#cde7ff" }, splitLine: { lineStyle: { color: "rgba(125,180,220,.12)" } } },
             yAxis: { type: "category", axisLabel: { color: "#cde7ff" }, data: ranking.map((item) => item.city) },
+            dataZoom: ranking.length > 1 ? [{
+                type: "slider",
+                yAxisIndex: 0,
+                orient: "vertical",
+                right: 4,
+                start: 0,
+                end: 100,
+                width: 14,
+                borderColor: "rgba(77,184,255,0.2)",
+                fillerColor: "rgba(77,184,255,0.15)",
+                handleStyle: { color: "#4db8ff" },
+                textStyle: { color: "transparent" },
+            }, {
+                type: "inside",
+                yAxisIndex: 0,
+                orient: "vertical",
+            }] : [],
             series: [{
                 type: "bar",
                 barWidth: 12,
