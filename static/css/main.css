@@ -310,6 +310,14 @@ select {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.chart-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.chart-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .chart-panel {
     min-height: 420px;
 }
@@ -885,10 +893,210 @@ th {
     background: #f6fff9;
 }
 
+/* ── 出行建议页 ─────────────────────────────── */
+[data-page="advice"] .advice-intro {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+[data-page="advice"] .metric-grid {
+    gap: 12px;
+}
+
+[data-page="advice"] .metric-card {
+    padding: 14px 16px;
+    border-radius: 14px;
+}
+
+[data-page="advice"] .metric-card .label {
+    font-size: 12px;
+}
+
+[data-page="advice"] .metric-card .value {
+    margin-top: 6px;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+[data-page="advice"] .metric-card .extra {
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+[data-page="advice"] .panel-title {
+    margin-bottom: 12px;
+}
+
+.advice-top-grid {
+    margin-top: 0;
+}
+
+.advice-bottom-grid {
+    margin-top: 0;
+}
+
+.advice-panel {
+    padding: 16px 18px;
+}
+
+.advice-hour-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.advice-hour-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: var(--bg);
+}
+
+.advice-hour-rank {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.advice-hour-time {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.advice-hour-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid;
+}
+
+.advice-period-panel {
+    margin-top: 0;
+    padding: 16px 18px;
+}
+
+.advice-period-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.advice-period-item {
+    display: grid;
+    grid-template-columns: 48px 1fr 140px;
+    align-items: center;
+    gap: 12px;
+}
+
+.advice-period-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.advice-period-bar-wrap {
+    height: 10px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.advice-period-bar {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.6s ease;
+    min-width: 4px;
+}
+
+.advice-period-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.advice-period-aqi {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.advice-activity-panel {
+    padding: 16px 18px;
+}
+
+.advice-activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.advice-activity-card {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.advice-activity-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.advice-activity-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.advice-activity-status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    width: fit-content;
+}
+
+.advice-status-good    { background: #d4f7e6; color: #1a7f4a; }
+.advice-status-ok      { background: #e8f4d4; color: #5a7a1a; }
+.advice-status-caution { background: #fff3d4; color: #a06000; }
+.advice-status-bad     { background: #ffe5e5; color: #c0392b; }
+.advice-status-danger  { background: #ffd0d0; color: #7d1f1f; }
+
+.advice-activity-text {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.advice-timeline-chart {
+    height: 200px;
+}
+
 @media (max-width: 1200px) {
     .metric-grid,
     .metric-grid-3,
     .chart-grid-2,
+    .chart-grid-3,
+    .chart-grid-4,
     .auto-collector-form {
         grid-template-columns: 1fr 1fr;
     }
@@ -934,7 +1142,9 @@ th {
 
     .metric-grid,
     .metric-grid-3,
-    .chart-grid-2 {
+    .chart-grid-2,
+    .chart-grid-3,
+    .chart-grid-4 {
         grid-template-columns: 1fr;
     }
 

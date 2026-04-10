@@ -18,6 +18,7 @@ from .services.auto_collection_service import (
 from .services.collection_queue_service import enqueue_collection_job
 from .services.forecast_service import generate_forecast_for_city
 from .services.import_service import import_air_quality_dataset
+from .services.advice_service import get_advice
 from .services.repository import (
     get_min_year,
     get_crawler_status,
@@ -34,6 +35,7 @@ from .services.task_progress_service import append_task_log, create_task, get_ta
 
 pages = Blueprint("pages", __name__)
 api = Blueprint("api", __name__, url_prefix="/api")
+DEFAULT_CITY = "烟台"
 
 
 @pages.route("/")
@@ -61,6 +63,11 @@ def screen():
     return render_template("screen.html")
 
 
+@pages.route("/advice")
+def advice():
+    return render_template("advice.html")
+
+
 @api.route("/cities")
 def cities():
     cities_data = list_cities()
@@ -70,7 +77,7 @@ def cities():
     return jsonify(
         {
             "cities": cities_data,
-            "default_city": "南京" if "南京" in cities_data else (cities_data[0] if cities_data else ""),
+            "default_city": DEFAULT_CITY if DEFAULT_CITY in cities_data else (cities_data[0] if cities_data else ""),
             "years": years,
             "default_year": current_year,
         }
@@ -79,13 +86,13 @@ def cities():
 
 @api.route("/overview")
 def overview():
-    city = request.args.get("city", "南京")
+    city = request.args.get("city", DEFAULT_CITY)
     return jsonify(get_overview(city))
 
 
 @api.route("/trend")
 def trend_data():
-    city = request.args.get("city", "南京")
+    city = request.args.get("city", DEFAULT_CITY)
     years = list_years()
     year = int(request.args.get("year", str(years[0] if years else datetime.now().year)))
     return jsonify(get_trend(city, year))
@@ -93,14 +100,20 @@ def trend_data():
 
 @api.route("/forecast")
 def forecast_data():
-    city = request.args.get("city", "南京")
+    city = request.args.get("city", DEFAULT_CITY)
     return jsonify(get_forecast(city))
+
+
+@api.route("/advice")
+def advice_data():
+    city = request.args.get("city", DEFAULT_CITY)
+    return jsonify(get_advice(city))
 
 
 @api.route("/forecast/generate", methods=["POST"])
 def generate_forecast():
     city = request.get_json(silent=True) or {}
-    target_city = city.get("city") or request.args.get("city", "南京")
+    target_city = city.get("city") or request.args.get("city", DEFAULT_CITY)
     result = generate_forecast_for_city(target_city)
     status_code = 200 if result.get("status") == "success" else 400
     return jsonify(result), status_code

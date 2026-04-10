@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% set page_name = "advice" %}
+
+{% block title %}出行建议 | 空气质量预测系统{% endblock %}
+
+{% block content %}
+<section class="panel">
+    <div class="panel-header">
+        <div>
+            <h2>出行建议</h2>
+            <p class="advice-intro">基于未来 24 小时 AQI 预测，为您推荐最佳出行时段与活动方案。</p>
+        </div>
+        <div class="toolbar">
+            <button id="adviceRefreshBtn" class="btn-primary">刷新建议</button>
+        </div>
+    </div>
+    <div id="adviceSummaryCards" class="metric-grid metric-grid-3"></div>
+    <div id="adviceMessage" class="inline-message"></div>
+</section>
+
+<section class="chart-grid chart-grid-3 advice-top-grid">
+    <div class="panel advice-panel" id="bestHoursPanel">
+        <div class="panel-title">最佳出行时段（预测 AQI 最低）</div>
+        <div id="bestHoursList" class="advice-hour-list"></div>
+    </div>
+    <div class="panel advice-panel" id="worstHoursPanel">
+        <div class="panel-title">建议避开时段（预测 AQI 最高）</div>
+        <div id="worstHoursList" class="advice-hour-list"></div>
+    </div>
+    <div class="panel advice-period-panel">
+        <div class="panel-title">分时段空气质量预测</div>
+        <div id="advicePeriodList" class="advice-period-list"></div>
+    </div>
+    <div class="panel advice-activity-panel" style="display:none;">
+        <div class="panel-title">活动建议</div>
+        <div id="adviceActivityGrid" class="advice-activity-grid"></div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/advice.js') }}"></script>
+{% endblock %}
